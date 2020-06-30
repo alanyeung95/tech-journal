@@ -1,4 +1,9 @@
 # Notes
+## How does node.js works
+Node.js listens and passes every concurrent traffic in a queue, which will be executed by an event loop.
+
+### How does a single thread handle asynchronous code in Node.js?
+By using `libuv`, node can ask os to do something like open and read a file. If it takes sometime for os to work, node will continue it's task. Then the os will remind node in the event queue once it finished its task.
 
 ## Webpack
 MODULES WITH DEPENDENCIES ->  STATIC ASSETS 
