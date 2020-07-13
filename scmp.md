@@ -9,8 +9,12 @@
 ## Gitlab
 1.  pipelink TOCHECK
 
-## Vault TOCHECK
+## Hashicorp Vault
+1.  secrets management, work with gitlab
+2.  can login with OIDC (Open ID connect) by using Google account
 
+### Reference
+https://medium.com/@petertc/openid-connect-a27e0a3cc2ae
 ## Gsuite
 
 ## GRPC
