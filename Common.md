@@ -51,5 +51,7 @@ we can also set the expire time when generate the jwt token
 
 Any server or service can valide the jwt token
 
+<b>But normally, API gatewiay like ambassador will verify the jwt then pass the request to microservices</b>
+
 ## Using Jwt with Gsuite
 https://developers.google.com/identity/protocols/oauth2/service-account
