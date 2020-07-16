@@ -86,6 +86,24 @@ Explanation
 The above query first does a grouping on author field and then calculates the number of likes on all the posts that were grouped together.
 
 ```
+
+### Q6
+```
+{
+            _id: 1,
+            tags: [�tutorial�, �fun�, �learning�],
+            post_text: �This is my first post�,	
+            //other elements of document  	
+}
+
+What does the following command return:
+
+db.posts.find( { 'tags.0': �tutorial� } )
+
+C - All the posts having the first element of the tags array as tutorial
+
+```
+
  ## Journal
  ```
  https://www.mongodb.com/blog/post/how-mongodbs-journaling-works
