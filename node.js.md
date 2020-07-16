@@ -5,6 +5,67 @@ Node.js listens and passes every concurrent traffic in a queue, which will be ex
 ### How does a single thread handle asynchronous code in Node.js?
 By using `libuv`, node can ask os to do something like open and read a file. If it takes sometime for os to work, node will continue it's task. Then the os will remind node in the event queue once it finished its task.
 
+## Express
+```
+var express = require('express');
+var app = express();
+ 
+//  主页输出 "Hello World"
+app.get('/', function (req, res) {
+   console.log("主页 GET 请求");
+   res.send('Hello GET');
+})
+ 
+ 
+//  POST 请求
+app.post('/', function (req, res) {
+   console.log("主页 POST 请求");
+   res.send('Hello POST');
+})
+ 
+//  /del_user 页面响应
+app.get('/del_user', function (req, res) {
+   console.log("/del_user 响应 DELETE 请求");
+   res.send('删除页面');
+})
+ 
+//  /list_user 页面 GET 请求
+app.get('/list_user', function (req, res) {
+   console.log("/list_user GET 请求");
+   res.send('用户列表页面');
+})
+ 
+// 对页面 abcd, abxcd, ab123cd, 等响应 GET 请求
+app.get('/ab*cd', function(req, res) {   
+   console.log("/ab*cd GET 请求");
+   res.send('正则匹配');
+})
+ 
+ 
+var server = app.listen(8081, function () {
+ 
+  var host = server.address().address
+  var port = server.address().port
+ 
+  console.log("应用实例，访问地址为 http://%s:%s", host, port)
+ 
+})
+```
+
+## Mongoose
+It is MongoDB object modeling for nodejs
+
+It encasupe the CRUD operation to MongoDB document, work between mongodb and nodejs. We don't need to remember the query syntax, we just need to remember the business logic
+
+```
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUnifiedTopology: true});
+
+const Cat = mongoose.model('Cat', { name: String });
+
+const kitty = new Cat({ name: 'Zildjian' });
+kitty.save().then(() => console.log('meow'));
+```
 ## Webpack
 MODULES WITH DEPENDENCIES ->  STATIC ASSETS 
 
