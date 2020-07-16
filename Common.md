@@ -55,3 +55,46 @@ Any server or service can valide the jwt token
 
 ## Using Jwt with Gsuite
 https://developers.google.com/identity/protocols/oauth2/service-account
+
+# static typing vs dymanic typing
+## static typing
+A statically typed language has a type system that is checked at compile time by the implementation (a compiler or interpreter). The type check rejects some programs, and programs that pass the check usually come with some guarantees; for example, the compiler guarantees not to use integer arithmetic instructions on string.
+
+So in Java for example:
+```
+String s = "abcd";
+```
+s will "forever" be a String. During its life it may point to different Strings (since s is a reference in Java). It may have a null value but it will never refer to an Integer or a List. That's static typing.
+
+## dymanic typing
+Values used at run time are classified into types.
+```
+$s = "abcd";          // $s is a string
+$s = 123;             // $s is now an integer
+$s = array(1, 2, 3);  // $s is now an array
+$s = new DOMDocument; // $s is an instance of the DOMDocument class
+```
+That's dynamic typing.
+
+## strong typing 
+Compare that to Ruby:
+
+val = "abc" + 123
+which is a runtime error because in Ruby the object 123 is not implicitly converted just because it happens to be passed to a + method. In Ruby the programmer must make the conversion explicit:
+
+val = "abc" + 123.to_s
+Comparing PHP and Ruby is a good illustration here. Both are dynamically typed languages but PHP has lots of implicit conversions and Ruby (perhaps surprisingly if you're unfamiliar with it) doesn't.
+
+
+## weak typing
+Weak typing implies that the compiler does not enforce a typing discpline, or perhaps that enforcement can easily be subverted.
+
+Consider a classic PHP "starts with" problem:
+```
+if (strpos('abcdef', 'abc') == false) {
+  // not found
+}
+```
+The error here is that strpos() returns the index of the match, being 0. 0 is coerced into boolean false and thus the condition is actually true. The solution is to use === instead of == to avoid implicit conversion.
+
+<br>Php is dymanic type and weak type. This example illustrates how a combination of implicit conversion and dynamic typing can lead programmers astray.</br>
