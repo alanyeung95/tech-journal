@@ -40,3 +40,18 @@ Each time a function is called it gets it’s own section of the stack to store 
 As explained above, function local variables “disappear” after the function returns. This isn’t a problem if only non-pointer values are returned, because the returned values are copied into the stack of the calling function.
 
 However, if pointers are returned, the pointed-at data needs to be placed somewhere outside the stack so that it will not “disappear.” This is what the heap is for.
+
+## GRPC
+
+use in microservices communication
+
+1.  connect server and client on any environnent and client type
+2.  use `protocal buffers`. `.proto` file is much smaller json and xml
+3.  grpc plugin call `proto-gen` (any language can use) will transfer the `.proto` to grpc go file
+4.  run time library will unmarshalled & and unpacked to get the data
+
+### Compare with websocket
+1.  websocket cannot resume connection
+2.  GRPC cannot push data to client without client request
+
+load blancing
