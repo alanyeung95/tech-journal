@@ -76,7 +76,7 @@ $s = new DOMDocument; // $s is an instance of the DOMDocument class
 ```
 That's dynamic typing.
 
-# Strong typing 
+## strong typing 
 Compare that to Ruby:
 
 val = "abc" + 123
@@ -86,7 +86,7 @@ val = "abc" + 123.to_s
 Comparing PHP and Ruby is a good illustration here. Both are dynamically typed languages but PHP has lots of implicit conversions and Ruby (perhaps surprisingly if you're unfamiliar with it) doesn't.
 
 
-# Weak typing
+## weak typing
 Weak typing implies that the compiler does not enforce a typing discpline, or perhaps that enforcement can easily be subverted.
 
 Consider a classic PHP "starts with" problem:
