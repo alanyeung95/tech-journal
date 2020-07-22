@@ -29,6 +29,8 @@ The Go runtime has a model where multiple Go routines are mapped onto multiple t
    1. Support polymorphism https://play.golang.org/p/6Ip9scm4c3
    2. Not support inheritance (no class to extend) unless we implement it with special way
 
+3. Hight learning curve
+
 # Concepts
 
 ## Stack: Function-local memory (pass-by-value)
