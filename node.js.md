@@ -5,6 +5,18 @@ Node.js listens and passes every concurrent traffic in a queue, which will be ex
 ### How does a single thread handle asynchronous code in Node.js?
 By using `libuv`, node can ask os to do something like open and read a file. If it takes sometime for os to work, node will continue it's task. Then the os will remind node in the event queue once it finished its task.
 
+### Code stack
+The call stack is a Last-In, First-Out (return goes back to the point of the most recent call) data structure containing the address at which function will resume and often local variables and parameters from each call
+
+## Module Types
+Node.js includes three types of modules:
+
+1. Core Modules like (`http`, `fs`)
+2. Local Modules
+4. Third Party Modules
+
+reference: https://medium.com/javascript-in-plain-english/node-call-stack-explained-fd9df1c49d2e
+
 ## Express
 ```
 var express = require('express');
@@ -92,3 +104,15 @@ Static assets are object you send to the user that the server does not change. I
 ### reference
 https://blog.techbridge.cc/2020/01/22/webpack-新手教學之淺談模組化與-snowpack/
 
+## N-API (pronounced N as in the letter, followed by API)
+is an API for building native Addons
+
+### Reference:
+```
+诚如从暴力到 NAN 再到 NAPI——Node.js 原生模块开发方式变迁一文所提到的NAN和NAPI的历史，NAN为了搞定”封建时代“混乱的C++原生模块，不再让一个模块只能被若干个nodejs版本使用，而提出使用宏定义来解决这个问题，所以说NAN是一大堆宏定义，兼容各种nodejs版本的宏定义。做到了一次编写，到处编译。
+而这种设计模式还是依然有缺点，那就是多次编译，也就是说你写的插件如果到了更高的Nodejs版本，还是需要再次编译，让宏定义再次匹配新的版本去编译出新的插件包，于是在node v8版本之后，nodejs提出了新的一套机制，也就是我们这次的主角-NAPI。
+```
+https://www.cnblogs.com/chyingp/p/nodejs-learning-napi.html
+
+## REPL-Read-Eval-Print-Loop (aka Node shell)
+It is a quick and easy way to test simple Node.js/JavaScript code.
