@@ -1,3 +1,33 @@
+## ReplicaSet
+https://blog.toright.com/posts/4508/mongodb-replica-set-高可用性架構搭建.html
+
+## Sharding
+Divide data into different machine
+
+### Benefit:
+1. Reduce the disk usage on a single server
+2. Faster query (index size decrease and distributed query)
+
+### Reference:
+https://xiezhenye.com/2012/12/mongodb-sharding-机制分析.html
+
+## Other operation
+backup a database
+```
+mongodump --uri="mongodb://mongodb0.example.com:27017" [additional options]
+```
+
+drop a database
+```
+use temp
+db.dropDatabase()
+```
+
+import json array
+```
+mongoimport --db dbName --collection collectionName --file fileName.json --jsonArray
+```
+
 ## Question
 ### Q1
 ```
@@ -15,7 +45,7 @@ db.users.update(
  $set is used to set the value of a particular field in a document. The syntax of set is $set:{column_name : column_value}. Also, {multi:true} is needed to update all the documents. Otherwise only the first found document is updated.
  ```
  
- ### Q2
+### Q2
  ```
 In our posts collection, which command can be used to find all the posts whose author names begin lie between "A" and "C" in dictionary order?
 
