@@ -54,3 +54,24 @@ sellTicket('Steven Rogers');     // (Total Sold: 3) Buyer: Steven Rogers
 Reference:
 1. https://ithelp.ithome.com.tw/articles/10209465
 2. https://stackoverflow.com/questions/36636/what-is-a-closure
+
+# Generator
+a generator is a function that can stop midway and then continue from where it stopped.
+
+```
+function * generatorFunction() { // Line 1
+  console.log('This will be executed first.');
+  yield 'Hello, ';   // Line 2
+  console.log('I will be printed after the pause');  
+  yield 'World!';
+}
+const generatorObject = generatorFunction(); // Line 3
+console.log(generatorObject.next().value); // Line 4
+console.log(generatorObject.next().value); // Line 5
+console.log(generatorObject.next().value); // Line 6
+// This will be executed first.
+// Hello, 
+// I will be printed after the pause
+// World!
+// undefined
+```
