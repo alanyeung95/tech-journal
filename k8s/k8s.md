@@ -15,6 +15,11 @@ Deployment manages creating Pods by means of ReplicaSets that needs to keep the 
 
 Port expose is also manage by deployment also
 
+## yaml file
+1. config map: store variable e.g. mongo table name, api port
+2. deployment yaml: define image tag, deployment environment
+3. auto-scaling: `kind: HorizontalPodAutoScaler`, define `minReplicas` && `maxReplicas`
+
 ## Ingress
 https://kubernetes.io/docs/concepts/services-networking/ingress/
 
