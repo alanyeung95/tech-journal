@@ -28,3 +28,68 @@ Reference: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 ## Unmounting method
 1. componentWillUnmount()
     1. cleaning up any subscriptions or closing any connection
+
+
+# Redux
+
+## Action
+Method to CRUD the store, have different `type`
+```
+// 存錢的 Action，存入的金額為 amount 
+{
+  type: 'DEPOSIT',
+  amount: 100
+}
+// 領錢的 Action，全部一次提領出來所以不需要 amount
+{
+  type: 'WITHDRAW_ALL'
+}
+```
+
+## Reducer
+Business logic to the action type
+```
+function reducer(state = 0, action) {
+  switch(action.type) {
+    
+    // 如果 type 為 'DEPOSIT'，回傳當前的金額加上存入的金額
+    case 'DEPOSIT':
+      return state + action.mount
+    
+    // 如果 type 為 'WITHDRAW'，回傳 0
+    case 'WITHDRAW':
+      return 0
+    
+    // 如果 type 為其他，回傳當前的金額 
+    default:
+      return state
+  }
+}
+```
+
+## Store
+Instance that created with reducer and receive action
+
+```
+const store = createStore(reducer)
+模擬存入任意金額的錢
+store.getState() // 一開始為 0 塊錢
+// 存入 10 塊錢
+store.dispatch({
+  type: 'DEPOSIT',
+  amount: 10
+})
+store.getState() // 現在有 10 塊錢
+// 再存入 100 塊錢
+store.dispatch({
+  type: 'DEPOSIT',
+  amount: 100
+})
+store.getState() // 現在總共有 110 塊錢
+// 模擬將全部的錢一次提領出來
+// 全部提領出來
+store.dispatch({
+  type: 'WITHDRAW'
+})
+store.getState() // 0 塊錢
+```
