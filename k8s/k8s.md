@@ -23,7 +23,8 @@ Port expose is also manage by deployment also
 ## Ingress
 https://kubernetes.io/docs/concepts/services-networking/ingress/
 
-An API object that manages external access to the services in a cluster, typically HTTP.
+An API object that contains a set of rules and manages external access to the services in a cluster. For example, how we rout a domain to our frontend and backend respectively. Just like reverse-proxy in nginx. Normally we should have an ingress controller to process this set of rules.
+
 Ingress may provide load balancing
 
 ### Ingress tutorial
