@@ -1,22 +1,3 @@
-# Notes
-## How does node.js works
-Node.js listens and passes every concurrent traffic in a queue, which will be executed by an event loop.
-
-### How does a single thread handle asynchronous code in Node.js?
-By using `libuv`, node can ask os to do something like open and read a file. If it takes sometime for os to work, node will continue it's task. Then the os will remind node in the event queue once it finished its task.
-
-### Code stack
-The call stack is a Last-In, First-Out (return goes back to the point of the most recent call) data structure containing the address at which function will resume and often local variables and parameters from each call
-
-## Module Types
-Node.js includes three types of modules:
-
-1. Core Modules like (`http`, `fs`)
-2. Local Modules
-4. Third Party Modules
-
-reference: https://medium.com/javascript-in-plain-english/node-call-stack-explained-fd9df1c49d2e
-
 ## Express
 ```
 var express = require('express');
