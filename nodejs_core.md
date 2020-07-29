@@ -1,13 +1,28 @@
-# Notes
+
 
 ## Reading
 - [x] https://medium.com/@berkaybindebir/deep-dive-node-js-762552ad31a8
-- [ ]  
+- [ ] V8 之旅： 垃圾回收器 http://newhtml.net/v8-garbage-collection/ 
 
 ## v8
 V8 is a Javascript engine written in C++ that created for using in the Chrome browser
 It’s compiles and executes Javascript code, handles call stack, handles memory allocation, handles garbage collecting
 But V8 cannot handle DOM because there is no browser.
+
+### Garbage collection
+
+Difficulties: An object is a candidate for garbage collection when it is unreachable from the root node, so not referenced by the root object or any other active objects. Root objects can be global objects, DOM elements or local variables.
+
+Memory usage:
+1. Code area
+2. The Objects heap has two main segments, the New Space and the Old Space.
+
+Technical issues:
+1. how to distinguish pointers and objects
+2. objects are moved frequently, so as pointers
+
+Reference:
+https://github.com/yjhjstz/deep-into-node/blob/master/chapter2/chapter2-0.md
 
 ## How does node.js works
 1. run “node index.js” for executing our Node JS code
