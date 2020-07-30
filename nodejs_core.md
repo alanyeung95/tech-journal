@@ -3,6 +3,8 @@
 ## Reading
 - [x] https://medium.com/@berkaybindebir/deep-dive-node-js-762552ad31a8
 - [ ] V8 之旅： 垃圾回收器 http://newhtml.net/v8-garbage-collection/ 
+- [ ] node源码粗读（10）：通过fs.write来看异步I/O和回调执行的整体流程 https://cnodejs.org/topic/5ac49eca96f344940fbbad43
+- [ ] node源码粗读(1)：一个简单的nodejs文件从运行到结束都发生了什么 https://cnodejs.org/topic/5a012ffe84ed7ceb219ea7a9
 
 ## v8
 V8 is a Javascript engine written in C++ that created for using in the Chrome browser
