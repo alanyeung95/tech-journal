@@ -1,3 +1,25 @@
+## ES6
+
+### Arrow function
+1. short syntax. remove `function` and `return` keyword
+2. `this` handling. 
+    1. In ES5, `this` refer to the owner of the function, so `this` inside `[a]` will become `[object Window]` since it is now out of scope
+    2. in ES6, arrow functions use `lexical scoping` — `this` refers to it’s current surrounding scope and no further. 
+    3. Reference: https://www.freecodecamp.org/news/learn-es6-the-dope-way-part-ii-arrow-functions-and-the-this-keyword-381ac7a32881/
+
+[a]
+```
+var bunny = {
+  name: 'Usagi',
+  tasks: ['transform', 'eat cake', 'blow kisses'],
+  showTasks: function() {
+    this.tasks.forEach(function(task) {
+      alert(this.name + " wants to " + task);
+    });
+  }
+};
+```
+
 ## Express
 ```
 var express = require('express');
