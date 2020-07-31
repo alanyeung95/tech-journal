@@ -13,6 +13,7 @@ When you create a Vue instance, you pass in an options object. Those object coub
 
 There are some hook function like `created`, `mounted`, `updated`, `destroyed`. For example, created hook can be used to run code after an instance is created:
 
+# Vue components
 ## Template
 All Vue.js templates are valid HTML that can be parsed by spec-compliant browsers and HTML parsers.
 
@@ -84,6 +85,30 @@ child component can share object/data with parent
     </v-img>
   </resolve-content-url>
 ```
+
+## storage
+### localStorage
+1. for simple data
+2. use `mounted` to handle loading the value from localStorage
+3. To store more complex values, like objects or arrays, you must serialize and deserialize the values with JSON.
+
+https://vuejs.org/v2/cookbook/client-side-storage.html
+
+### child-level communication was not recommended by Vue
+Reference: https://juejin.im/post/6844903542315040776
+
+# Vuex
+Vuex is the official state management library for Vue.js. It is used to centralize the state in a single store
+
+## state
+One state store for each vue application, single source of truth 
+## mutation
+Receive event type and handler it. Receive update state from payload
+## action
+Similar to mutation, but it can commit (trigger mutation with event type) and it could be async
+## getter
+Get state value
+
 # Others
 ## vm.$el
 dom element or string
