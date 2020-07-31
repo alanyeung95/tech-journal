@@ -99,15 +99,12 @@ Reference: https://juejin.im/post/6844903542315040776
 
 # Vuex
 Vuex is the official state management library for Vue.js. It is used to centralize the state in a single store
+Reference: https://flaviocopes.com/vuex/#introduction-to-vuex
 
-## state
-One state store for each vue application, single source of truth 
-## mutation
-Receive event type and handler it. Receive update state from payload
-## action
-Similar to mutation, but it can commit (trigger mutation with event type) and it could be async
-## getter
-Get state value
+1. state. One state store for each vue application, single source of truth 
+2. mutation. Receive event type and handler it. Receive update state from payload
+3. action. Similar to mutation, but it can commit (trigger mutation with event type) and it could be async
+4. getter. Get state value
 
 # Others
 ## vm.$el
