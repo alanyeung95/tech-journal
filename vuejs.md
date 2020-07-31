@@ -9,15 +9,21 @@ var vm = new Vue({
 When you create a Vue instance, you pass in an options object. Those object couble be `router`, `vuetify`
 
 ## Vue Lifecycle
+it also runs functions called lifecycle hooks, giving users the opportunity to add their own code at specific stages.
+ 
 <img src="https://vuejs.org/images/lifecycle.png" alt="drawing" width="500"/>
 
 There are some hook function like `created`, `mounted`, `updated`, `destroyed`. For example, created hook can be used to run code after an instance is created:
+
+- the state variable is not loaded when beforecreated hook is called
+- the created hook is a great time to fire an AJAX call as state is ready
+- we can access the dom from `$el` element inside the `mounted` function
 
 # Vue components
 ## Template
 All Vue.js templates are valid HTML that can be parsed by spec-compliant browsers and HTML parsers.
 
-Under the hood, Vue compiles the templates into `Virtual DOM` render functions. 
+Under the hook, Vue compiles the templates into `Virtual DOM` render functions. 
 
 ## Computed Properties
 Putting too much logic in your templates can make them bloated and hard to maintain
