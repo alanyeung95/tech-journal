@@ -9,6 +9,34 @@ On the other hand, if we put `sex` first, we may only narrow the result to 50%
 
 https://stackoverflow.com/questions/33545339/how-does-the-order-of-compound-indexes-matter-in-mongodb-performance-wise
 
+## Stats
+db.stats can be used to check the info of a db
+```
+> db.stats();
+{
+    "db" : "test",
+    "collections" : 5,    // connection 數量
+    "objects" : 28,        // 物件數量
+    "avgObjSize" : 307.42857142857144,    // 平均物件大小
+    "dataSize" : 8608,    // 資料大小
+    "storageSize" : 1110016,    // storage大小
+    "numExtents" : 6,    // 事件數量
+    "indexes" : 4,        // 索引數量
+    "indexSize" : 32704,    // 索引大小
+    "fileSize" : 67108864,    // 檔案大小
+    "nsSizeMB" : 16,
+    "extentFreeList" : {
+        "num" : 3,
+        "totalSize" : 147456
+    },
+    "dataFileVersion" : {
+        "major" : 4,
+        "minor" : 22
+    },
+    "ok" : 1
+}
+```
+
 ## Aggregate
 use multiple `pipelines` (or different subprocesses) to achieve complex query
 
