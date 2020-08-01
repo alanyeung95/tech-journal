@@ -1,5 +1,6 @@
-## Nodejs playground
-https://www.katacoda.com/courses/nodejs/playground
+## Nodejs resources
+1. playground: https://www.katacoda.com/courses/nodejs/playground
+2. core modules: https://flaviocopes.com/node-core-modules/
 
 ## Buffer.allocUnsafe() 
 The underlying memory for Buffer instances created in this way is not initialized. 
