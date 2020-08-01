@@ -44,3 +44,25 @@ service port 3000
 1. set up RAM (resources access management) role.  (for accessing your resources in other service such as Container Service, pods etc)
 2. set up k8s cluster: https://www.alibabacloud.com/help/doc-detail/85903.htm?spm=a2c63.p38356.879954.5.215954fczngJq2#task-mmv-33q-n2b
 3. create deployment: https://www.alibabacloud.com/help/doc-detail/90406.htm?spm=a2c63.p38356.879954.19.3aff3233nuUZed
+
+# Log services
+
+# Table store
+spreedsheet like structure, could store Event-sourcing events, chating record
+
+API doc:
+https://help.aliyun.com/document_detail/27304.html?spm=a2c4g.11186623.6.750.562b58d2SMlk7M
+
+tablestore sdk:
+https://github.com/aliyun/aliyun-tablestore-go-sdk
+
+tablestore example:
+https://github.com/aliyun/tablestore-examples?spm=a2c4g.11186623.2.12.45885d42MTPFVf
+
+# Alibaba Cloud Object Storage Service (OSS)
+- OSS is a cloud storage service provided by Alibaba Cloud, featuring massive capacity, security, a low cost, and high reliability.
+- The OSS can store any type of files and therefore applies to various websites, development enterprises and developers.
+
+SDK, example and documents:
+
+https://github.com/aliyun/aliyun-oss-go-sdk
