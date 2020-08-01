@@ -1,3 +1,31 @@
+# Callback Functions
+
+A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+
+```
+function functionOne(x) { return x; };
+
+function functionTwo(var1) {
+    // some code
+}
+
+functionTwo(functionOne);
+```
+
+As JavaScript has `anonymous functions` available, you can also pass in anonymous Functions as a variable to a function.
+```
+function functionTwo(var1, callback) {
+    callback(var1);		
+}
+
+functionTwo(1, function (x) { alert(x); })
+```
+
+## Deal with callback hell
+1. write comments
+2. make function name instead of anonymous functions. Function name improve the readability and make the function can be referenced
+3. `Promoise`
+
 # For vs foreach
 
 ## forEach keeps the variable’s scope to the block
