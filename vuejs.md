@@ -9,14 +9,21 @@ var vm = new Vue({
 When you create a Vue instance, you pass in an options object. Those object couble be `router`, `vuetify`
 
 ## Vue Lifecycle
+it also runs functions called lifecycle hooks, giving users the opportunity to add their own code at specific stages.
+ 
 <img src="https://vuejs.org/images/lifecycle.png" alt="drawing" width="500"/>
 
 There are some hook function like `created`, `mounted`, `updated`, `destroyed`. For example, created hook can be used to run code after an instance is created:
 
+- the state variable is not loaded when beforecreated hook is called
+- the created hook is a great time to fire an AJAX call as state is ready
+- we can access the dom from `$el` element inside the `mounted` function
+
+# Vue components
 ## Template
 All Vue.js templates are valid HTML that can be parsed by spec-compliant browsers and HTML parsers.
 
-Under the hood, Vue compiles the templates into `Virtual DOM` render functions. 
+Under the hook, Vue compiles the templates into `Virtual DOM` render functions. 
 
 ## Computed Properties
 Putting too much logic in your templates can make them bloated and hard to maintain
@@ -84,6 +91,27 @@ child component can share object/data with parent
     </v-img>
   </resolve-content-url>
 ```
+
+## storage
+### localStorage
+1. for simple data
+2. use `mounted` to handle loading the value from localStorage
+3. To store more complex values, like objects or arrays, you must serialize and deserialize the values with JSON.
+
+https://vuejs.org/v2/cookbook/client-side-storage.html
+
+### child-level communication was not recommended by Vue
+Reference: https://juejin.im/post/6844903542315040776
+
+# Vuex
+Vuex is the official state management library for Vue.js. It is used to centralize the state in a single store
+Reference: https://flaviocopes.com/vuex/#introduction-to-vuex
+
+1. state. One state store for each vue application, single source of truth 
+2. mutation. Receive event type and handler it. Receive update state from payload
+3. action. Similar to mutation, but it can commit (trigger mutation with event type) and it could be async
+4. getter. Get state value
+
 # Others
 ## vm.$el
 dom element or string

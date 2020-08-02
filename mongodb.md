@@ -1,3 +1,83 @@
+## Compound index
+Composite indexes can be used to enforce uniqueness of combinations of fields.
+
+### Index order
+Try to use compound index with high `Cardinality` (have a more unique value for every document in the collection)
+
+Consider `sex` and `name` field. `name` field has higher cardinality as we can narrow more record. 
+On the other hand, if we put `sex` first, we may only narrow the result to 50%
+
+https://stackoverflow.com/questions/33545339/how-does-the-order-of-compound-indexes-matter-in-mongodb-performance-wise
+
+## Stats
+db.stats can be used to check the info of a db
+```
+> db.stats();
+{
+    "db" : "test",
+    "collections" : 5,    // connection 數量
+    "objects" : 28,        // 物件數量
+    "avgObjSize" : 307.42857142857144,    // 平均物件大小
+    "dataSize" : 8608,    // 資料大小
+    "storageSize" : 1110016,    // storage大小
+    "numExtents" : 6,    // 事件數量
+    "indexes" : 4,        // 索引數量
+    "indexSize" : 32704,    // 索引大小
+    "fileSize" : 67108864,    // 檔案大小
+    "nsSizeMB" : 16,
+    "extentFreeList" : {
+        "num" : 3,
+        "totalSize" : 147456
+    },
+    "dataFileVersion" : {
+        "major" : 4,
+        "minor" : 22
+    },
+    "ok" : 1
+}
+```
+
+## Aggregate
+use multiple `pipelines` (or different subprocesses) to achieve complex query
+
+### example1: 
+我們希望可以找出男性中第二年輕的人，我們可以按照下面的步驟建立管道，來找出第二年輕的男性。
+
+先篩選出sex為M的user。
+將每個user的name與age投射出來。
+根據age進行排序。
+跳過1名user。
+限制輸出結果為1。
+根據以上的步驟我們建立出來的聚合如下。
+```
+db.user.aggregate(
+	{ "$match" : { "sex" : "M"}},
+	{ "$project" : { "name" : 1 , "age" : 1 }},
+	{ "$sort" : { "age" : 1 }},
+	{ "$skip" : 1 },
+	{ "$limit" : 1 }
+)
+```
+reference: https://ithelp.ithome.com.tw/articles/10185952
+
+### example2: 
+Retrieve Distinct Values
+The following aggregation operation uses the $group stage to retrieve the distinct item values from the sales collection:
+```
+db.sales.aggregate( [ { $group : { _id : "$item" } } ] )
+```
+## Query/Cursor explain
+```
+db.test.find({"x" : 1}).limit(1).explain("executionStats")
+db.test.find({"x" : 999999}).limit(1).explain("executionStats")
+```
+
+Several informs we can get from cursor explain: `executionTimeMillis, totalDocsExamined`
+
+We can also know if the query is using an index: A query that uses an index has a cursor of type `BtreeCursor`, otherwise it will only use `BasicCursor`
+
+Reference: https://ithelp.ithome.com.tw/articles/10185596
+
 ## ReplicaSet
 https://blog.toright.com/posts/4508/mongodb-replica-set-高可用性架構搭建.html
 
@@ -10,6 +90,11 @@ Divide data into different machine
 
 ### Reference:
 https://xiezhenye.com/2012/12/mongodb-sharding-机制分析.html
+
+## Replica Set Arbiter
+- In some circumstances (such as you have a primary and a secondary but cost constraints prohibit adding another secondary), you may choose to add an arbiter to your replica set. 
+- An arbiter does not have a copy of data set and cannot become a primary. However, an arbiter participates in elections for primary. An arbiter has exactly 1 election vote.
+
 
 ## Other operation
 backup a database
@@ -27,6 +112,16 @@ import json array
 ```
 mongoimport --db dbName --collection collectionName --file fileName.json --jsonArray
 ```
+
+
+## Journal
+```
+https://www.mongodb.com/blog/post/how-mongodbs-journaling-works
+```
+```
+https://codertw.com/%E8%B3%87%E6%96%99%E5%BA%AB/11097/
+```
+
 
 ## Question
 ### Q1
@@ -134,10 +229,3 @@ C - All the posts having the first element of the tags array as tutorial
 
 ```
 
- ## Journal
- ```
- https://www.mongodb.com/blog/post/how-mongodbs-journaling-works
- ```
- ```
-  https://codertw.com/%E8%B3%87%E6%96%99%E5%BA%AB/11097/
- ```
