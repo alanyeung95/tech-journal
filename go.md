@@ -57,3 +57,95 @@ use in microservices communication
 2.  GRPC cannot push data to client without client request
 
 load blancing
+
+## multithreading
+### wait group
+```
+package main
+
+import (
+    "fmt"
+    "sync"
+    "time"
+)
+
+func worker(id int, wg *sync.WaitGroup) {
+    defer wg.Done()
+    fmt.Printf("Worker %d starting\n", id)
+    time.Sleep(time.Second)
+    fmt.Printf("Worker %d done\n", id)
+}
+
+func main() {
+    var wg sync.WaitGroup
+    for i := 1; i <= 50; i++ {
+        wg.Add(1)
+        go worker(i, &wg)
+    }
+    wg.Wait()
+}
+```
+https://gobyexample.com/waitgroups
+
+### channel
+```
+// _Channels_ are the pipes that connect concurrent
+// goroutines. You can send values into channels from one
+// goroutine and receive those values into another
+// goroutine.
+
+package main
+
+import "fmt"
+
+func main() {
+
+	// Create a new channel with `make(chan val-type)`.
+	// Channels are typed by the values they convey.
+	messages := make(chan string)
+
+	// _Send_ a value into a channel using the `channel <-`
+	// syntax. Here we send `"ping"`  to the `messages`
+	// channel we made above, from a new goroutine.
+	go func() { messages <- "ping" }()
+
+	// The `<-channel` syntax _receives_ a value from the
+	// channel. Here we'll receive the `"ping"` message
+	// we sent above and print it out.
+	msg := <-messages
+	fmt.Println(msg)
+}
+```
+
+### racing condition
+
+https://www.ardanlabs.com/blog/2013/09/detecting-race-conditions-with-go.html
+
+```
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+var Lock sync.Mutex
+
+func set(p *int, val int) {
+    if (val >*p){ // Print and assign itself only when itself is larger
+		Lock.Lock() // Add lock here to preven race condition
+    	*p = val
+		fmt.Println(*p)
+		Lock.Unlock()
+	}
+}
+
+func main() {
+    a := 0
+	for i := 0; i < 50; i++ {
+		go set(&a, i)
+	}
+	time.Sleep(100 * time.Nanosecond)
+}
+```
