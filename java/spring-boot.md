@@ -19,6 +19,8 @@ https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-p
 3. `Actuator` make monitoring easiler
 4. Easy config
    1. 100% javaConfig, hybrid config vs xml config (https://www.baeldung.com/spring-xml-vs-java-config)
+5. [Dependency injection](#dpi)
+
 
 # Spring boot disadvantages
 
@@ -34,10 +36,11 @@ https://projectlombok.org/features/GetterSetter
 https://www.youtube.com/watch?v=xlWwMSu5I70&list=PLGibysfsUS7NAbefiaj1V4LbX0glTftDI&index=4&t=0s
 https://www.youtube.com/watch?v=7c6ZTF6cF88&list=PLGibysfsUS7NAbefiaj1V4LbX0glTftDI&index=4
 
-# Dependency injection
-
+# Dependency injection 
+<a name="dpi"></a>
 Reference:
 https://www.youtube.com/watch?v=K5bkniAjkZA
+https://stackoverflow.com/questions/3058/what-is-inversion-of-control
 
 ## @Autowired
 
