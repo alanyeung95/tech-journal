@@ -17,8 +17,7 @@ https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-p
 2. Easy setup
    1. Spring initiator and auto configuration
 3. `Actuator` make monitoring easiler
-4. Easy config
-   1. 100% javaConfig, hybrid config vs xml config (https://www.baeldung.com/spring-xml-vs-java-config)
+4. [Auto config](#auto_config) 
 5. [Dependency injection](#dpi)
 
 
@@ -39,6 +38,7 @@ https://www.youtube.com/watch?v=7c6ZTF6cF88&list=PLGibysfsUS7NAbefiaj1V4LbX0glTf
 # Dependency injection <a name="dpi"></a>
 Reference:
 https://www.youtube.com/watch?v=K5bkniAjkZA
+
 https://stackoverflow.com/questions/3058/what-is-inversion-of-control
 
 ## @Autowired
@@ -66,7 +66,7 @@ Receive request then decide to pass to service inside servlets
 
 A servlet is simply a class which responsds to a particular type of network request - most commonly an HTTP request.
 
-# Auto configuration
+# Auto configuration  <a name="auto_config"></a>
 
 When we use springMVC we need to use xml file to define a lot of stuff include bean to tell the bean factory to create object for us.
 
@@ -96,3 +96,6 @@ https://www.springboottutorial.com/spring-boot-auto-configuration
 # Thymeleaf
 
 template engine for serving static resources
+
+# XML config
+100% javaConfig, hybrid config vs xml config (https://www.baeldung.com/spring-xml-vs-java-config)
