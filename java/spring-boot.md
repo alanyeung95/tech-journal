@@ -36,8 +36,7 @@ https://projectlombok.org/features/GetterSetter
 https://www.youtube.com/watch?v=xlWwMSu5I70&list=PLGibysfsUS7NAbefiaj1V4LbX0glTftDI&index=4&t=0s
 https://www.youtube.com/watch?v=7c6ZTF6cF88&list=PLGibysfsUS7NAbefiaj1V4LbX0glTftDI&index=4
 
-# Dependency injection 
-<a name="dpi"></a>
+# Dependency injection <a name="dpi"></a>
 Reference:
 https://www.youtube.com/watch?v=K5bkniAjkZA
 https://stackoverflow.com/questions/3058/what-is-inversion-of-control
