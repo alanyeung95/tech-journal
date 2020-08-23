@@ -82,15 +82,23 @@ Reference: https://ithelp.ithome.com.tw/articles/10232335
 
 ## EventEmitter
 ```
-//event.js 文件
-var EventEmitter = require('events').EventEmitter; 
-var event = new EventEmitter(); 
-event.on('some_event', function() { 
-    console.log('some_event 事件触发'); 
+var events = require('events'); 
+var emitter = new events.EventEmitter(); 
+
+emitter.on('someEvent', function(arg1, arg2) { 
+    console.log('listener1', arg1, arg2); 
 }); 
-setTimeout(function() { 
-    event.emit('some_event'); 
-}, 1000); 
+
+emitter.on('someEvent', function(arg1, arg2) { 
+    console.log('listener2', arg1, arg2); 
+}); 
+
+const checkHandler = function(){
+  console.log('listener3 emit handler'); 
+}
+emitter.on('someEvent',checkHandler); 
+
+emitter.emit('someEvent', 'arg1', 'arg2'); 
 ```
 
 ## stdin
