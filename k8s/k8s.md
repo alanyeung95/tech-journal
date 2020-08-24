@@ -169,3 +169,37 @@ spec:
       name: http-app
 ```
 
+# Secret
+
+Reference: https://kubernetes.io/docs/concepts/configuration/secret/
+
+list k8s secret
+```
+kubectl get secret
+```
+
+read a specific secret content
+```
+kubectl get secret demo-app -o yaml
+```
+
+return 
+```
+apiVersion: v1
+data:
+  PASSWORD: XXXXXXXXXXXXXXXXX=
+kind: Secret
+metadata:
+  creationTimestamp: "2019-06-11T08:28:08Z"
+  name: demo-app
+  namespace: default
+  resourceVersion: "96574473"
+  selfLink: /api/v1/namespaces/defult/secrets/demo-app
+  uid: cc6a20d6-8c22-11e9-aa53-00163e045bab
+type: Opaque
+```
+
+Apply secret (normally we need to creat the yaml and apply it manually, as we cannot commit it to repo)
+```
+kubectl apply -f mysecret.yaml
+```
