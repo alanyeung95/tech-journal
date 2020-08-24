@@ -203,3 +203,7 @@ Apply secret (normally we need to creat the yaml and apply it manually, as we ca
 ```
 kubectl apply -f mysecret.yaml
 ```
+return 
+```
+secret/demo-app created
+```
