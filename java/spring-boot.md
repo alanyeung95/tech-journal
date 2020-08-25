@@ -74,6 +74,14 @@ With spring boot, if the `jar` dependancy is on the class path, we can use the e
 
 We can also use spring initiator to skip those details
 
+for example, spring boot can skip the setting of `DispatcherServlet`
+
+https://juejin.im/post/6844903970972909581
+
+We can initialize `DispatcherServlet` by using spring-web.jar
+
+https://blog.csdn.net/qq_28411869/article/details/101053098
+
 ## debug autoconfiguration
 
 ### turn on debug logging
@@ -91,6 +99,7 @@ find positiveMatches and negativeMatches (found no beans)
 ## Reference
 
 https://www.youtube.com/watch?v=J_kTukE7hr8
+
 https://www.springboottutorial.com/spring-boot-auto-configuration
 
 # Thymeleaf
@@ -99,3 +108,13 @@ template engine for serving static resources
 
 # XML config
 100% javaConfig, hybrid config vs xml config (https://www.baeldung.com/spring-xml-vs-java-config)
+
+# pom.xml
+
+Usage
+1. Project info like <groupID>, <artifactId>, <packaging> type
+2. <dependencies>
+3. <build> let we define compile, build and execution option
+4. different <profile> can define different <build> tag
+   
+Reference: https://www.youtube.com/watch?v=IYRYbPR5Gek
