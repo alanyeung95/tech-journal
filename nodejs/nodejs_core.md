@@ -3,6 +3,7 @@
 ### Nodejs event loop, callback
 - [ ] https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
 - [ ] 带你彻底弄懂Event Loop https://juejin.im/post/6844903670291628046
+- [x] EventLoop queue order https://medium.com/@jain.sm/nodejs-event-loop-and-libuv-6bf3668c482
 
 ### Nodejs source code
 - [x] https://medium.com/@berkaybindebir/deep-dive-node-js-762552ad31a8
