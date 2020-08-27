@@ -39,10 +39,11 @@ https://github.com/yjhjstz/deep-into-node/blob/master/chapter2/chapter2-0.md
 ## How does node.js works
 1. run “node index.js” for executing our Node JS code
 2. Node creates a new process and executes our codes into an event loop
-3. Each instance of Node has own event loop and each instance will run in a single thread in CPU.
+3. Each instance of Node has own event loop (run in one single thread, called the main thread) and each instance will run in a single thread in CPU.
 4. Node.js listens and passes every concurrent traffic in a queue, which will be executed by an event loop.
-5. If all pending tasks are done, event loops run all close callbacks and exit from the loop.
-
+5. Event loop check method, if sync do it now, else pass the async method to theadpool and let c++ do it
+6. Event then will look at the callback queue and pick the call back function
+7. If all pending tasks are done, event loops run all close callbacks and exit from the loop.
 
 ## libuv
 although event loops is single-thread
@@ -53,7 +54,7 @@ the low-level operations like reading a file or requesting an HTTP server works 
 By using `libuv`, node can ask os to do something like open and read a file. If it takes sometime for os to work, node will continue it's task. Then the os will remind node in the event queue once it finished its task.
 
 
-## Code stack
+## Call stack
 The call stack is a Last-In, First-Out (return goes back to the point of the most recent call) data structure containing the address at which function will resume and often local variables and parameters from each call
 
 ## Module Types
