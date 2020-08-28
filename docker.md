@@ -32,3 +32,25 @@ show log
 ```
 docker logs -f  b063c4f29572
 ```
+
+# Technical notes
+```
+docker-compose start
+```
+Starts existing containers for a service. docker start with flag '-a' can let you attach into container and see the output
+
+```
+docker-compose up
+```
+Builds, (re)creates, starts, and attaches to containers for a service. Can apply updated code with mounted volumes
+
+```
+docker-compose run
+```
+Runs a one-time command against a service. For example, the following command starts the web service and runs bash as its command. e.g. `$ docker-compose run web bash`
+
+
+## what is the meaning of '-it' flag in docker run cmd?
+default will connect the stdout inside the container, if we want to input something into container, we need '-it' for stdin.
+The -it instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container.
+-i for stdin, stdout, stderr, -t for nice formatting
