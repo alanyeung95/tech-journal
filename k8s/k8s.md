@@ -14,7 +14,7 @@ An abstract way to expose an application running on a set of Pods as a network s
 
 Service will create a `ClusterIp` for a set of pods, so that other service within the cluster can access the target pods by using the cluster ip.
 
-We can also define `targetPorts` so that service outside the k8s cluster within the same node can access the pods
+We can also use selector and define `targetPorts` so that service outside the k8s cluster within the same node can access the pods
 
 ## Deployment
 A Kubernetes Deployment checks on the health of your Pod and restarts the Pod's Container if it terminates. Deployments are the recommended way to manage the creation and scaling of Pods.
@@ -34,6 +34,18 @@ https://kubernetes.io/docs/concepts/services-networking/ingress/
 An API object that contains a set of rules and manages external access to the services in a cluster. For example, how we rout a domain to our frontend and backend respectively. Just like reverse-proxy in nginx. Normally we should have an ingress controller to process this set of rules.
 
 Ingress may provide load balancing
+
+sample config:
+```
+  rules:
+  - host: kubernetes.foo.bar
+    http:
+      paths:
+      - backend:
+          serviceName: appsvc
+          servicePort: 80
+        path: /app
+```
 
 ### Ingress tutorial
 https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
