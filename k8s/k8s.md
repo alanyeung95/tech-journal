@@ -16,6 +16,11 @@ Service will create a `ClusterIp` for a set of pods, so that other service withi
 
 We can also use selector and define `targetPorts` so that service outside the k8s cluster within the same node can access the pods
 
+### Reference:
+https://ithelp.ithome.com.tw/articles/10220414
+
+https://tachingchen.com/tw/blog/kubernetes-service/
+
 ## Deployment
 A Kubernetes Deployment checks on the health of your Pod and restarts the Pod's Container if it terminates. Deployments are the recommended way to manage the creation and scaling of Pods.
 
