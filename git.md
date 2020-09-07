@@ -15,3 +15,8 @@ change commit message
 ```
 git commit --amend
 ```
+
+point local repo to new url after renaming it 
+```
+git remote set-url origin https://github.com/xxxxx.git
+```
