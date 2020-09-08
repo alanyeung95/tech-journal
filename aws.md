@@ -14,8 +14,12 @@ You use IAM to control who is authenticated (signed in) and authorized (has perm
 ## Create IAM users
 https://ithelp.ithome.com.tw/articles/10192076
 
-## Local Credentials
+## AWS CLI Tool
+### Local Credentials
 ```
 export AWS_ACCESS_KEY_ID=xxx
 export AWS_SECRET_ACCESS_KEY=xxx
 ```
+
+### s3 bucket with command line
+https://ithelp.ithome.com.tw/articles/10192079
