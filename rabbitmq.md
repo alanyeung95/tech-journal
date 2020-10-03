@@ -45,3 +45,7 @@ https://www.rabbitmq.com/tutorials/tutorial-one-go.html
 ## Config
 config can be imported or exported via json. The default name is `definitions.json`
 
+# Others
+
+### Compare with nats
+https://www.quora.com/What-is-the-reason-that-Rabbitmq-is-more-popular-than-NATS
