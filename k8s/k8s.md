@@ -16,6 +16,9 @@ Service will create a `ClusterIp` for a set of pods, so that other service withi
 
 We can also use selector and define `targetPorts` so that service outside the k8s cluster within the same node can access the pods
 
+### Example
+request from client -> mapper (router to service label according to prefix) -> service (with port, send reqest to pods according to selector label and targetport) -> pods 
+
 ### Reference:
 https://ithelp.ithome.com.tw/articles/10220414
 
