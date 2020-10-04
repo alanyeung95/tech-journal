@@ -13,6 +13,12 @@
 - [ ] https://www.smashingmagazine.com/2020/04/nodejs-internals/
 
 # Behavioural questions 
+
+## Bug fixing priority
+1. Bugs that affect the build or deployment of production
+2. Bugs that affect the progress of other developers
+3. Best practise breaking workaround, but will reactor later
+
 ## Difficult tasks
 
 ### Converting long user story or abstract requirements in to a series of concrete coding action point. 
