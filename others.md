@@ -11,3 +11,15 @@
 # TODO
 - [ ] https://medium.com/@C.W.Hu/kubernetes-implement-ingress-deployment-tutorial-7431c5f96c3e
 - [ ] https://www.smashingmagazine.com/2020/04/nodejs-internals/
+
+# Behavioural questions 
+## Difficult tasks
+
+### Converting long user story or abstract requirements in to a series of concrete coding action point. 
+Apart from reading the story/ticklet and coding, there are 3 essences we need in order to deliver the solution.
+
+- understand the user workflow according to the requirement, for designing happy path of our code.
+- fully understand our current system, so that we can know which part of the system will be potentially affected by the requirement. For example the download feature may affect the user report history function as well as the report may need to include the download history.
+- dealing with edge cases, sometimes we need input from user.
+
+### Opensource component from third party
