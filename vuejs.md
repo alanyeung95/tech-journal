@@ -116,6 +116,9 @@ Reference: https://flaviocopes.com/vuex/#introduction-to-vuex
 ## vm.$el
 dom element or string
 
+
+# Vue vs React
+
 ## Virtual DOM
 
 ### Problem of DOM
@@ -132,3 +135,16 @@ Simple methods such as document.getElementsByClassName() are fine to use on a sm
 
 Reference:
 https://bitsofco.de/understanding-the-virtual-dom/
+
+## Component
+React与Vue都鼓励组件化应用。这本质上说，是建议你将你的应用分拆成一个个功能明确的模块，每个模块之间可以通过合适的方式互相联系。关于组件化的例子可以在这篇文章的中间部分被找到:
+
+For example, download button will be a component. This component will encapsulate all the js, html and ccs as a module. Other parent component can just import this child component without worrying the css or js logic 
+
+
+## Props (parent-child communication)
+
+## Cli tool to build a starter project
+
+## Syntax
+JSX vs html template
