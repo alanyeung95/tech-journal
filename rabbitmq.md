@@ -47,5 +47,30 @@ config can be imported or exported via json. The default name is `definitions.js
 
 # Others
 
-### Compare with nats
+## Compare with nats
+
+### NATS
+Pros:
+1. High scalability (clustering)
+2. Light-weight: It’s tiny, just a 3MB Docker image!
+
+Cons:
+1. Fire and forget, no persistence: NATS doesn’t do persistent messaging; if you’re offline, you don’t get the message.
+2. No enterprise queueing
+
+
+### RabbitMQ
+
+Pros:
+1. It supports a variety of message routing paradigms.
+2. Flexibile Persistent solution. First, some background: both persistent and transient messages can be written to disk. Persistent messages will be written to disk as soon as they reach the queue, while transient messages will be written to disk only so that they can be evicted from memory while under memory pressure
+3. Enterprise favour: nice official UI monitor
+
+Cons:
+1. Too complicated cluster/HA config and management
+
+### Reference: 
 https://www.quora.com/What-is-the-reason-that-Rabbitmq-is-more-popular-than-NATS
+
+https://medium.com/@philipfeng/modern-open-source-messaging-apache-kafka-rabbitmq-nats-pulsar-and-nsq-ca3bf7422db5
+
