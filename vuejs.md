@@ -109,8 +109,16 @@ Reference: https://flaviocopes.com/vuex/#introduction-to-vuex
 
 1. state. One state store for each vue application, single source of truth 
 2. mutation. Receive event type and handler it. Receive update state from payload
-3. action. Similar to mutation, but it can commit (trigger mutation with event type) and it could be async
+3. `this.$store.commit`. commit the message and event type to mutation
 4. getter. Get state value
+5. action. Similar to mutation, but it can commit (trigger mutation with event type) and it could be async
+
+## Dispatch Vs Commit in Vuex
+Dispatch triggers an action whereas commit triggers a mutation. $dispatch sends a message to Vuex store to perform some action.
+
+The commit is done from within an action. It is done only when you have data to commit. Commit is synchronous and it may affect the performance of frontend.
+
+When you want to do a task asynchronously you should use $dispatch so that your user interface will not get affected by the task by being frozen for a while or unresponsive.
 
 # Others
 ## vm.$el
