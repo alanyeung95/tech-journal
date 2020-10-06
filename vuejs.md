@@ -146,5 +146,22 @@ For example, download button will be a component. This component will encapsulat
 
 ## Cli tool to build a starter project
 
-## Syntax
-JSX vs html template
+## Data Mutation
+
+### React 
+The philosophy behind React is that the state should be immutable. When trying to mutate the state object, no re-rendering occurs. In order to trigger re-rendering, the method setState should be used. This updates not only the root component but the entire component sub-tree as well. The re-rendering process can be controlled by using PureComponent or `shouldComponentUpdate` lifecycle hook. That flexibility comes at a cost, though, so all the optimizations should be done manually. This makes the data flow more predictable. Overall, React gives developers a lot of control over the re-rendering process.
+
+### Vue
+In Vue, the state is represented in the data object. Unlike React, the mutation of the state object triggers re-rendering.
+
+However, there are some gotchas. For example, mutating nested objects or arrays might not trigger re-rendering. In this case, we can either use the Vue.set method (similar to the setState method in React) or make the changes in immutable fashion by using Object.assign or the ES6 spread operators. This can be confusing to beginners but you can find more information the internal mechanism behind Vue here.
+
+Vue automatically performs optimizations to update specific parts of the component tree but doesn’t offer a manual way to prevent re-renders. In React, it’s up to the developer to decide when and where to manually prevent them.
+
+## Templating and Styling
+
+### React
+The use of React JSX is an abstraction of React.createElement method and is used to create Virtual DOM entities. Its syntax resembles HTML with some significant differences. It offers smoother developer experience, debugging, and better code readability than the createElement method. It’s also possible to use React without JSX.
+
+### Vue
+Vue takes a more conservative approach to templating and styling — one that’s separated from the logic. The markup is represented as templates that look just like old school HTML. In fact, every valid HTML is also a valid Vue template. Inside the templates, the framework offers a lot of syntactic sugars like conditionals, iterations, etc.
