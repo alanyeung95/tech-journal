@@ -67,6 +67,81 @@ var server = app.listen(8081, function () {
 })
 ```
 
+## Promise vs async await
+
+### Promise
+
+Promises are generally used for easier handling of asynchronous operations or blocking code
+
+It is an object that wrapping an executer function that have `resolve` and `reject` function
+
+`new Promise( /* executor */ function(resolve, reject) { ... } );`
+
+```
+var momsPromise = new Promise(function(resolve, reject) {
+  momsSavings = 20000;
+  priceOfPhone = 60000;
+  if (momsSavings > priceOfPhone) {
+    resolve({
+      brand: "iphone",
+      model: "6s"
+    });
+  } else {
+    reject("We donot have enough savings. Let us save some more money.");
+  }
+});
+momsPromise.then(function(value) {
+  console.log("Hurray I got this phone as a gift ", JSON.stringify(value));
+});
+momsPromise.catch(function(reason) {
+  console.log("Mom coudn't buy me the phone because ", reason);
+});
+```
+
+The resolve function will run the `then` method and the reject function will run the `catch` method
+
+reference: https://medium.com/better-programming/understanding-promises-in-javascript-13d99df067c1
+
+### Async await
+
+1. store the results in variables, more human readable code
+1. `await ` must be used inside an async function
+2. `await` must be used inside a try-catch block
+3. `await` will blocks the code execution within the async function
+
+```
+let isOurPromiseFinished = false;
+const myAsyncAwaitBlock = async (str) => {
+  try {
+    // If the promise resolves, we enter this code block
+    const myPromise = await returnsAPromise(str);
+    console.log(`using async/await, ${res}`);
+  } catch(err) {
+    // If the promise rejects, we enter this code block
+    console.log(err);
+  } finally {
+    /* This is for code that doesn't rely on the outcome of the    
+    promise but still needs to run once it's handled */
+    isOurPromiseFinished = true;
+  }
+}
+myAsyncAwaitBlock(myFirstString);
+```
+
+
+### Which one should I use?
+
+- Fast
+Promise chains are probably still a good option if you’re trying to quickly grab the results from a promise. Promise chains will allow you to avoid writing a bunch of unnecessary wrapper functions when a simple `.then` will do.
+
+- Readability
+sync/await is an excellent option if you find yourself writing long, complicated waterfalls of .then statements. Async/await will allow you to clean it up into one readable, asynchronous callback function. Just remember don't put too many await function inside the async function as the first one will block all other function
+
+- Parallel execution
+normally, `await` is always for a single Promise, and we will use `Promise.all(promisesArray)` for running promises in parallel
+
+Reference: https://medium.com/better-programming/should-i-use-promises-or-async-await-126ab5c98789
+
 ## Mongoose
 It is MongoDB object modeling for nodejs
 
