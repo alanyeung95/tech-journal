@@ -109,12 +109,23 @@ Reference: https://flaviocopes.com/vuex/#introduction-to-vuex
 
 1. state. One state store for each vue application, single source of truth 
 2. mutation. Receive event type and handler it. Receive update state from payload
-3. action. Similar to mutation, but it can commit (trigger mutation with event type) and it could be async
+3. `this.$store.commit`. commit the message and event type to mutation
 4. getter. Get state value
+5. action. Similar to mutation, but it can commit (trigger mutation with event type) and it could be async
+
+## Dispatch Vs Commit in Vuex
+Dispatch triggers an action whereas commit triggers a mutation. $dispatch sends a message to Vuex store to perform some action.
+
+The commit is done from within an action. It is done only when you have data to commit. Commit is synchronous and it may affect the performance of frontend.
+
+When you want to do a task asynchronously you should use $dispatch so that your user interface will not get affected by the task by being frozen for a while or unresponsive.
 
 # Others
 ## vm.$el
 dom element or string
+
+
+# Vue vs React
 
 ## Virtual DOM
 
@@ -132,3 +143,33 @@ Simple methods such as document.getElementsByClassName() are fine to use on a sm
 
 Reference:
 https://bitsofco.de/understanding-the-virtual-dom/
+
+## Component
+React与Vue都鼓励组件化应用。这本质上说，是建议你将你的应用分拆成一个个功能明确的模块，每个模块之间可以通过合适的方式互相联系。关于组件化的例子可以在这篇文章的中间部分被找到:
+
+For example, download button will be a component. This component will encapsulate all the js, html and ccs as a module. Other parent component can just import this child component without worrying the css or js logic 
+
+
+## Props (parent-child communication)
+
+## Cli tool to build a starter project
+
+## Data Mutation
+
+### React 
+The philosophy behind React is that the state should be immutable. When trying to mutate the state object, no re-rendering occurs. In order to trigger re-rendering, the method setState should be used. This updates not only the root component but the entire component sub-tree as well. The re-rendering process can be controlled by using PureComponent or `shouldComponentUpdate` lifecycle hook. That flexibility comes at a cost, though, so all the optimizations should be done manually. This makes the data flow more predictable. Overall, React gives developers a lot of control over the re-rendering process.
+
+### Vue
+In Vue, the state is represented in the data object. Unlike React, the mutation of the state object triggers re-rendering.
+
+However, there are some gotchas. For example, mutating nested objects or arrays might not trigger re-rendering. In this case, we can either use the Vue.set method (similar to the setState method in React) or make the changes in immutable fashion by using Object.assign or the ES6 spread operators. This can be confusing to beginners but you can find more information the internal mechanism behind Vue here.
+
+Vue automatically performs optimizations to update specific parts of the component tree but doesn’t offer a manual way to prevent re-renders. In React, it’s up to the developer to decide when and where to manually prevent them.
+
+## Templating and Styling
+
+### React
+The use of React JSX is an abstraction of React.createElement method and is used to create Virtual DOM entities. Its syntax resembles HTML with some significant differences. It offers smoother developer experience, debugging, and better code readability than the createElement method. It’s also possible to use React without JSX.
+
+### Vue
+Vue takes a more conservative approach to templating and styling — one that’s separated from the logic. The markup is represented as templates that look just like old school HTML. In fact, every valid HTML is also a valid Vue template. Inside the templates, the framework offers a lot of syntactic sugars like conditionals, iterations, etc.

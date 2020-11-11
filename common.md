@@ -98,3 +98,9 @@ if (strpos('abcdef', 'abc') == false) {
 The error here is that strpos() returns the index of the match, being 0. 0 is coerced into boolean false and thus the condition is actually true. The solution is to use === instead of == to avoid implicit conversion.
 
 <br>Php is dymanic type and weak type. This example illustrates how a combination of implicit conversion and dynamic typing can lead programmers astray.</br>
+
+# Functional programming
+## Functional programming vs Object Oriented programming
+https://stackoverflow.com/questions/2078978/functional-programming-vs-object-oriented-programming
+
+https://www.geeksforgeeks.org/difference-between-functional-programming-and-object-oriented-programming/
