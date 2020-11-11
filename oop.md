@@ -17,3 +17,9 @@ Every function is an encapsulation.
 ## Design difference
 - In abstraction, implementation complexities are hidden using abstract classes and interfaces.	
 - While in encapsulation, the data is hidden using methods of getters and setters.
+
+# virtual functions
+In Java, all non-static methods are by default "virtual functions." Only methods marked with the keyword final, which cannot be overridden, along with private methods, which are not inherited, are non-virtual.
+
+# Inheritance type
+https://beginnersbook.com/2013/05/java-inheritance-types/

@@ -61,3 +61,51 @@ public class Solution {
     }
 }
 ```
+
+# windos
+```
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'fewestCoins' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING coins as parameter.
+#
+
+def fewestCoins(coins):
+    charSet = set()
+    for char in coins:
+        charSet.add(char) 
+    print(charSet)  
+
+    windowSize = len(charSet)
+    while(True):   
+        for i in range(len(coins) - windowSize +1):
+            windowString = coins[i:i+windowSize]
+            find=True
+            for char in charSet:
+                if (char not in windowString):
+                    find=False
+            if (find==True):
+                return len(windowString)
+        windowSize+=1
+     
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    coins = input()
+
+    result = fewestCoins(coins)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+```
