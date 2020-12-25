@@ -1,3 +1,18 @@
+## sparse representation
+
+i am happy because i am learning NLP
+[1,1,1,1,....,0,0,0,0]
+
+will be
+[feature1,feature2,....feature n]
+n=|V|
+
+Problem
+1. large training time
+2. large prediction time
+
+As you can see, as VV gets larger, the vector becomes more sparse. Furthermore, we end up having many more features and end up training \thetaθ VV parameters. This could result in larger training time, and large prediction time. 
+
 ## Logistic Regression Overview
 Logistic regression makes use of the sigmoid function which outputs a probability between 0 and 1.
 
@@ -47,11 +62,11 @@ vs
 
 Tweet: I am not happy because I did go
 
-### Vector space models 
+## Vector space models 
 
 Vector space models can be used to identify similarity for a question answering, paraphrasing, and summarization. 
 
-### Principal components analysis 
+## Principal components analysis 
 For dimensionality reduction
 
 When you have a representation of your words in a high dimensional space.
