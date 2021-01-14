@@ -114,3 +114,8 @@ print (groceries)
 
 #  __init__()
 The __init__() method is a constructor method that is called automatically whenever a new object is created from a class. It sets the initial state of a new object.
+
+# yield
+When you call a function that contains a yield statement anywhere, you get a generator object, but no code runs. Then each time you extract an object from the generator, Python executes code in the function until it comes to a yield statement, then pauses and delivers the object. When you extract another object, Python resumes just after the yield and continues until it reaches another yield (often the same one, but one iteration later). This continues until the function runs off the end, at which point the generator is deemed exhausted.
+
+https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do

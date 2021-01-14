@@ -88,3 +88,15 @@ The amount of information retained by each feature
 Covariance indicates the level to which two variables vary together. If we examine N-dimensional samples, X = [x_1, x_2, ... x_N]^T, then the covariance matrix element C_{ij} is the covariance of x_i and x_j.
 
 https://numpy.org/doc/stable/reference/generated/numpy.cov.html
+
+## N-grams
+
+### need memory space
+
+for example
+
+p(w3,w2,w1) = p(w1) * p(w2|w1) * p(w3|,w1,w2)
+
+## RNN
+better than N-grams as N-grams need memory to store the previous pattern
+
