@@ -67,23 +67,14 @@ Tweet: I am not happy because I did go
 Vector space models can be used to identify similarity for a question answering, paraphrasing, and summarization. 
 
 ## Principal components analysis 
-For dimensionality reduction
 
-When you have a representation of your words in a high dimensional space.
-
-You could use an algorithm like PCA
-to get a representation on a vector space with fewer dimensions.
-
-If you want to visualize your data,
-you can get a reduced representation with three or fewer features. 
-
-#### Eigenvector
+### Eigenvector
 Uncorrelated features for your data
 
-#### Eigenvalue
+### Eigenvalue
 The amount of information retained by each feature
 
-#### Covariance 
+### Covariance 
 
 Covariance indicates the level to which two variables vary together. If we examine N-dimensional samples, X = [x_1, x_2, ... x_N]^T, then the covariance matrix element C_{ij} is the covariance of x_i and x_j.
 
