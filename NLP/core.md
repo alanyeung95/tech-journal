@@ -99,3 +99,10 @@ https://www.geeksforgeeks.org/ml-back-propagation-through-time/
 
 ### Disadvantages
 1. struggle with longer sequence
+
+## LSTM
+
+<img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" alt="drawing" width="500"/>
+
+reference: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
