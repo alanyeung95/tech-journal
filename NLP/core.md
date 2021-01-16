@@ -102,7 +102,7 @@ https://www.geeksforgeeks.org/ml-back-propagation-through-time/
 
 ## LSTM
 
-<img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" alt="drawing" width="500"/>
+<img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" alt="drawing" width="1000"/>
 
 reference: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
 
