@@ -89,5 +89,13 @@ for example
 p(w3,w2,w1) = p(w1) * p(w2|w1) * p(w3|,w1,w2)
 
 ## RNN
-better than N-grams as N-grams need memory to store the previous pattern
 
+Back Propagation:
+https://www.geeksforgeeks.org/ml-back-propagation-through-time/
+
+### Advantages
+1. captures dependcies within a short range
+2. better than N-grams as N-grams need memory to store the previous pattern
+
+### Disadvantages
+1. struggle with longer sequence
