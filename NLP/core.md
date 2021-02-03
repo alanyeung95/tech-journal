@@ -106,3 +106,6 @@ https://www.geeksforgeeks.org/ml-back-propagation-through-time/
 
 reference: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
 
+## Teacher Forcing
+
+https://towardsdatascience.com/what-is-teacher-forcing-3da6217fed1c
