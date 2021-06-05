@@ -107,5 +107,14 @@ https://www.geeksforgeeks.org/ml-back-propagation-through-time/
 reference: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
 
 ## Teacher Forcing
-
 https://towardsdatascience.com/what-is-teacher-forcing-3da6217fed1c
+
+## Encoder - Decorder
+https://medium.com/analytics-vidhya/machine-translation-encoder-decoder-model-7e4867377161#:~:text=The%20encoder-decoder%20model%20is,text%20summarization%20and%20question%20answering.
+
+● Encoder-It accepts a single element of the input sequence at each time step, process it, collects information for that element and propagates it forward.
+● Intermediate vector- This is the final internal state produced from the encoder part of the model. It contains information about the entire input sequence to help the decoder make accurate predictions.
+● Decoder- given the entire sentence, it predicts an output at each time step.
+● final state of encoder is set as initial state of decoder
+
+## Trax
