@@ -1,3 +1,20 @@
+## Query optimizer and Index
+Query Optimizer’s job is to determine if an index can be used to evaluate a predicate in a query.
+
+The Query Optimizer needs to determine if the index covers the query; that is, if the index contains all the columns required by the query (referred to as a `covering index`).
+
+ref: https://www.red-gate.com/simple-talk/databases/sql-server/performance-sql-server/index-selection-and-the-query-optimizer/
+
+### `$hint` operator
+
+The $hint operator forces the query optimizer to use a specific index to fulfill the query. Specify the index either by the index name or by document.
+```
+db.users.find().hint( { age: 1 } )
+```
+### 
+
+https://www.red-gate.com/simple-talk/databases/sql-server/performance-sql-server/index-selection-and-the-query-optimizer/
+
 ## Compound index
 Composite indexes can be used to enforce uniqueness of combinations of fields.
 
