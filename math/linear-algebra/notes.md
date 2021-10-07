@@ -44,3 +44,20 @@ what is v in the basis defined by b1 and b2 ? You are given that b1 and b2 are o
 
 therefore:
 <img src="http://www.sciweavers.org/tex2img.php?eq=%20%20v_%7Bb%7D%20%3D%20%20%5Cbegin%7Bbmatrix%7D%202%20%5C%5C%203%20%5Cend%7Bbmatrix%7D%20&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="  v_{b} =  \begin{bmatrix} 2 \\ 3 \end{bmatrix} " width="72" height="39" />
+
+[img]http://www.sciweavers.org/tex2img.php?eq=%20%20v_%7Bb%7D%20%3D%20%20%5Cbegin%7Bbmatrix%7D%202%20%5C%5C%203%20%5Cend%7Bbmatrix%7D%20&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0[/img]
+
+## linearly dependency
+We know that the vectors are linearly dependent if the determinant of the matrix is zero
+
+https://www.maths.usyd.edu.au/u/geoffp/lm-ss/lectp7.pdf
+
+ Are the following vectors linearly independent?
+ 
+ ```
+ a[1,0,0], b= [1,1,0], c=[1,0,1] 
+ ```
+ 
+ ans: yes
+ 
+There are three vectors and they are linearly dependent, which means that the vectors span 3 dimensions.
