@@ -61,3 +61,11 @@ https://www.maths.usyd.edu.au/u/geoffp/lm-ss/lectp7.pdf
  ans: yes
  
 There are three vectors and they are linearly dependent, which means that the vectors span 3 dimensions.
+
+## matric
+### 2d matric multiplication
+
+https://d2r55xnwy6nx47.cloudfront.net/uploads/2021/03/Matrix-graphic-2.svg
+
+### Gaussian elimination (apples and bananas problem)
+https://i.ytimg.com/vi/eDb6iugi6Uk/maxresdefault.jpg
