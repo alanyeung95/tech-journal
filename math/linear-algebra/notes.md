@@ -79,3 +79,8 @@ determinants = ad-bc
 ```
 if the determinant is zero, it means that the basis vectors are linearly independent, which means the inverse doesn't exist
 ```
+
+## Σ (Sigma)
+
+## Einstein summation convention
+https://slideplayer.com/5156248/16/images/slide_1.jpg
