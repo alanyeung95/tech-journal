@@ -69,3 +69,13 @@ https://d2r55xnwy6nx47.cloudfront.net/uploads/2021/03/Matrix-graphic-2.svg
 
 ### Gaussian elimination (apples and bananas problem)
 https://i.ytimg.com/vi/eDb6iugi6Uk/maxresdefault.jpg
+
+https://rpubs.com/josemauriciobaezadiaz/imperialcollegelondon1
+
+## Determinants
+A=[[a b][c d]]
+determinants = ad-bc
+
+```
+if the determinant is zero, it means that the basis vectors are linearly independent, which means the inverse doesn't exist
+```
