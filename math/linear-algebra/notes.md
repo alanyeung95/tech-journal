@@ -84,3 +84,54 @@ if the determinant is zero, it means that the basis vectors are linearly indepen
 
 ## Einstein summation convention
 https://slideplayer.com/5156248/16/images/slide_1.jpg
+
+## Inverse of matrix
+
+suppose we have matrix:
+```
+[a b]
+[c d]
+```
+
+inverse of it will be:
+```
+1/2 * [d -b]
+      [-c a]  
+```
+
+## Gram-Schmidt Process
+The hardest concept I came across in this course so far, even I pass the lab with 10/10 score, I still fail to understand it.
+https://www.cnblogs.com/bigmonkey/p/9988022.html
+
+## Calculate matrix determinant 
+det [[1 2][3 4]]
+= 1*4 -2*3 = -2
+
+## Eigenvectors
+eigenvectors are those which lie along the same span both
+before and after applying a linear transform to a space.
+
+*we never consider the zero-vector as an eigenvector of a matrix.
+
+### Calculating eigenvectors
+Ax = λx
+A = transformation
+x = vector
+I = scaler // as eigenvectors only be scaled after transformation
+
+(A-λ)x = 0
+(A-λI)x = 0 // I = identity matrix
+
+as we are not interested the case when x=0
+we only interested in the case when A-λI=0
+## Eigenvalues
+eigenvalues are simply the amount that
+each of those vectors has been stretched in the process. 
+
+## Characteristic polynomial
+for example matrix A = [[a b][c d]]
+
+det([[a b][c d]]-[[λ 0][0 λ]]) 
+= det([[a-λ b][c d-λ]])
+= (a-λ)(d-λ)-bc
+= λ^2-λ(a+b)-bc
