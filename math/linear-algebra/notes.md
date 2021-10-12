@@ -135,3 +135,19 @@ det([[a b][c d]]-[[λ 0][0 λ]])
 = det([[a-λ b][c d-λ]])
 = (a-λ)(d-λ)-bc
 = λ^2-λ(a+b)-bc
+
+## Using eigenvectors to calculate pagerank count
+suppose L = page weighting for page A-F
+```
+L = np.array([[0,   1/2, 1/3, 0, 0,   0 ],
+              [1/3, 0,   0,   0, 1/2, 0 ],
+              [1/3, 1/2, 0,   1, 0,   1/2 ],
+              [1/3, 0,   1/3, 0, 1/2, 1/2 ],
+              [0,   0,   0,   0, 0,   0 ],
+              [0,   0,   1/3, 0, 0,   0 ]])
+```
+
+To get the page count:
+R^i+1 = L @ R^i
+
+eignvectors R means the convergence vector after i step where R will not change anymore, so eignvectors is the page count.
