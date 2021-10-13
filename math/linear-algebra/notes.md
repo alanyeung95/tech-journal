@@ -73,6 +73,9 @@ https://i.ytimg.com/vi/eDb6iugi6Uk/maxresdefault.jpg
 https://rpubs.com/josemauriciobaezadiaz/imperialcollegelondon1
 
 ## Determinants
+
+The determinant is useful for solving linear equations, capturing how linear transformation change area or volume, and changing variables in integrals. 
+
 A=[[a b][c d]]
 determinants = ad-bc
 
@@ -107,11 +110,17 @@ https://www.cnblogs.com/bigmonkey/p/9988022.html
 det [[1 2][3 4]]
 = 1*4 -2*3 = -2
 
-## Eigenvectors
+## Eigenvectors & Eigenvalues
+### Eigenvectors
 eigenvectors are those which lie along the same span both
 before and after applying a linear transform to a space.
 
 *we never consider the zero-vector as an eigenvector of a matrix.
+
+### Eigenvalues
+eigenvalues are simply the amount that
+each of those vectors has been stretched in the process. 
+
 
 ### Calculating eigenvectors
 Ax = λx
@@ -124,9 +133,18 @@ I = scaler // as eigenvectors only be scaled after transformation
 
 as we are not interested the case when x=0
 we only interested in the case when A-λI=0
-## Eigenvalues
-eigenvalues are simply the amount that
-each of those vectors has been stretched in the process. 
+
+
+https://www.youtube.com/watch?v=IdsV0RaC9jM
+
+
+
+## Calculate matrix T^2
+T = C@D@C^-1
+
+T^2 = C@D@C^-1 @ C@D@C^-1
+= C@D@D@C^-2
+= C@D^2@C^-1
 
 ## Characteristic polynomial
 for example matrix A = [[a b][c d]]
@@ -147,7 +165,13 @@ L = np.array([[0,   1/2, 1/3, 0, 0,   0 ],
               [0,   0,   1/3, 0, 0,   0 ]])
 ```
 
+eignvectors R means the convergence vector after i step where R will not change anymore, so eignvectors is the page count.
+
+Ra to Rf initial weighting will be 1/6
+
 To get the page count:
 R^i+1 = L @ R^i
 
-eignvectors R means the convergence vector after i step where R will not change anymore, so eignvectors is the page count.
+
+## Tools
+matrix calculator: https://www.symbolab.com/solver/matrix-multiply-calculator
