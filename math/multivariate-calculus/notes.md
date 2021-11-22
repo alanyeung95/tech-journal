@@ -17,3 +17,8 @@ df/dg = e^(sin^x2)
 dx/df = 2xe * e^(sin^x2) * cos(2x)
 ```
 
+## Jacobian
+The Jacobian matrix represents the differential of f at every point where f is differentiable.
+
+J = [2xy,x^2,3]
+j(0,0,0) = [2 * 0 * 0, 0^2,3] = [0,0,3]
