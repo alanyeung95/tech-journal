@@ -22,3 +22,6 @@ The Jacobian matrix represents the differential of f at every point where f is d
 
 J = [2xy,x^2,3]
 j(0,0,0) = [2 * 0 * 0, 0^2,3] = [0,0,3]
+
+## The Hessian
+https://www.khanacademy.org/math/multivariable-calculus/applications-of-multivariable-derivatives/quadratic-approximations/a/the-hessian
