@@ -1,6 +1,10 @@
 ## Introduction
 
+tutorial: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
 LSTM uses a "conveyor belt" to get longer memory than SimpleRNN
+
+And the tanh of conveyor belt and h_t-1 will be the input for h_t
 
 ![](lstm-1.png)
 

@@ -118,3 +118,26 @@ https://medium.com/analytics-vidhya/machine-translation-encoder-decoder-model-7e
 ● final state of encoder is set as initial state of decoder
 
 ## Trax
+
+## dense layer vs hidden layer
+A dense layer is a kind of hidden layer where every node is connected to every other node in the next layer.
+
+
+we could use the F1 measure to make the metrics work together: F1 = 2 * (Bleu * Rouge) / (Bleu + Rouge)
+
+ref:
+https://stackoverflow.com/questions/38045290/text-summarization-evaluation-bleu-vs-rouge
+
+## Evulation approach
+
+### BLEU
+https://machinelearningmastery.com/calculate-bleu-score-for-text-python/
+
+### Rouge
+recall:
+
+number_of_overlapping_words / total_words_in_reference_summary (target)
+
+precision:
+
+number_of_overlapping_words / total_words_in_system_summary (output)

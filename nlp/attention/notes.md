@@ -2,7 +2,7 @@
 
 ## Seq2Seq + Attention
 
-![](diagrams/d1.png)
+![](diagrams/d-1.png)
 
 1. decoder hidden layer (s_j) should contain all information of the sentence
 2. calculate a_i from h_i and s_j, the sum of a_m should be 1 (original approach)
@@ -35,6 +35,44 @@ https://www.youtube.com/watch?v=XhWdv7ghmQQ
 
 ref:
 https://zhuanlan.zhihu.com/p/53682800
+https://www.youtube.com/watch?v=aButdUV0dxI&t=50s
+
+key: k_i = W_k * x_i
+value: v_i = W_v * x_i
+query: q_j = W_q * x'_j
+
+for each q in q_j
+    for each k in k_j
+        a_j_i = k.transpose * q
+    a_j = softmax(a_j_*)      
+    c_j = a_j_0 * v_0 + .... +  a_j_i * v_i
+
+we can calculate c_j parallelly
+
+![](diagrams/transf-1.png)
+
+
+## BERT (Bidrectional Encoder Representations from Transformers)
+BERT is for pre-training Transformer's encoder
+
+* Predict masked word
+* Predict next sentence
+
+### Predict masked word
+![](diagrams/bert-1.png)
+
+
+### Predict next sentence
+![](diagrams/bert-2.png)
+
+embedding layer can learn the relationship between the two sentences
+
+### pros
+* bert does not need manually labeled data (manual labeling is expensive)
+* any large-scale data can be used as training data, e.g., english wikipedia
+
+## cons
+* cost greate memory usage, as too many traing parameters. BERT base has 110M parameters. 16TPUs need 4 days of training without hyper-parameter tuning
 
 ## Reformer
 

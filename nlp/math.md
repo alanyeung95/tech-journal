@@ -38,3 +38,6 @@ to get a representation on a vector space with fewer dimensions.
 
 If you want to visualize your data,
 you can get a reduced representation with three or fewer features. 
+
+## Cross Entropy
+https://medium.com/swlh/cross-entropy-loss-in-pytorch-c010faf97bab
