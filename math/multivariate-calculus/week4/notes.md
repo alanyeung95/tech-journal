@@ -5,11 +5,25 @@ The Taylor series can be used if our function is way too complex for our compute
 ref:
 https://www.coursera.org/learn/multivariate-calculus-machine-learning/discussions/weeks/4/threads/8INglvKoEemFlAqMnv19UA
 
+<img src="./diagrams/1.png" alt="drawing" width="500"/>
+
+## Order approximation
+
+More order approximate, more accurated
+
+ref: https://www.coursera.org/learn/multivariate-calculus-machine-learning/discussions/weeks/4/threads/XiEPYYhuQyOhD2GIbrMjLQ
+
 ## TAYLOR AND MACLAURIN (POWER) SERIES CALCULATOR
 
 https://www.emathhelp.net/en/calculators/calculus-1/taylor-and-maclaurin-series-calculator/?f=1%2Fx&p=4&n=5&v=
 
 https://www.symbolab.com/solver/series-absolute-convergence-calculator
+
+## Inflection points
+
+Points where slop f'(x) stop decreasing
+
+https://www.khanacademy.org/math/ap-calculus-ab/ab-diff-analytical-applications-new/ab-5-6a/v/inflection-points#:~:text=Inflection%20points%20are%20points%20where,the%20second%20derivative%20changes%20signs
 
 ## q2-3 ans
 
@@ -47,3 +61,11 @@ fyy(x,y) = -sin(phi * x -x^2 *y) (0)
 ```
 
 H_f = [[-2 phi, -2],[-2,0]]
+
+## q5-1
+
+order 1: one straight line with slope
+order 2: one turning point (slope = 0)
+order 6: 5 turning points
+
+ref: https://www.khanacademy.org/math/ap-calculus-bc/bc-series-new/bc-10-14/v/visualizing-taylor-series-approximations
