@@ -36,4 +36,7 @@ https://www.coursera.org/learn/multivariate-calculus-machine-learning/discussion
 
 well, looks like we need to calculate it manually for this question
 
+calculator:
+https://www.wolframalpha.com/widgets/view.jsp?id=1451afdfe5a25b2a316377c1cd488883
+
 https://www.coursera.org/learn/multivariate-calculus-machine-learning/discussions/weeks/5/threads/qRKShW_TEem8JQ7hwboAWg
