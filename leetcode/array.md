@@ -76,6 +76,65 @@ class Solution {
     }
 }
 ```
+## valid-sudoku
+```
+Input: board = 
+[["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+Output: true
+```
+
+### my ans
+```
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        rotatedBoard = list(zip(*board))[::-1]
+    
+        groupBoard = []
+        for i in range(0,9,3):
+            groupBoard.append(board[i][0:3]+ board[i+1][0:3]+board[i+2][0:3])
+            groupBoard.append(board[i][3:6]+board[i+1][3:6]+board[i+2][3:6])
+            groupBoard.append(board[i][6:9]+board[i+1][6:9]+board[i+2][6:9])
+        
+        return self.checkBoard(board) and self.checkBoard(rotatedBoard) and self.checkBoard(groupBoard)
+    
+    def checkBoard(self, board: List[List[str]]) -> bool:
+        for line in board:
+            numDict={}
+            for num in line:
+                if num != ".":
+                    if numDict.get(num) == True:
+                        return False
+                    else:
+                        numDict[num]=True        
+        return True
+```        
+
+### ans
+```
+public boolean isValidSudoku(char[][] board) {
+    Set seen = new HashSet();
+    for (int i=0; i<9; ++i) {
+        for (int j=0; j<9; ++j) {
+            char number = board[i][j];
+            if (number != '.')
+                if (!seen.add(number + " in row " + i) ||
+                    !seen.add(number + " in column " + j) ||
+                    !seen.add(number + " in block " + i/3 + "-" + j/3))
+                    return false;
+        }
+    }
+    return true;
+}
+```
+
 ## single-number
 ```
 Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
