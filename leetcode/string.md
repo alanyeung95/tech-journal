@@ -1,5 +1,15 @@
+## reverse-string
+### ans
+```
+class Solution(object):
+    def reverseString(self, s):
+        l = len(s)
+        if l < 2:
+            return s
+        return self.reverseString(s[l/2:]) + self.reverseString(s[:l/2])
+```
+
 ## roman-to-integer
-### question
 ```
 Symbol       Value
 I             1
@@ -28,5 +38,20 @@ class Solution:
                 z += roman[s[i]]
         return z + roman[s[-1]]
 ```
+
+## first-unique-character-in-a-string
+### ans
+```
+def firstUniqChar(self, s):
+    """
+    :type s: str
+    :rtype: int
+    """
+
+    letters='abcdefghijklmnopqrstuvwxyz'
+    index=[s.index(l) for l in letters if s.count(l) == 1]
+    return min(index) if len(index) > 0 else -1
+```
+        
         
         
