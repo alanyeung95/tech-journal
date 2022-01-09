@@ -118,3 +118,96 @@ public int strStr(String haystack, String needle) {
   }
 }
 ```
+
+## count-and-say
+```
+Input: n = 4
+Output: "1211"
+Explanation:
+countAndSay(1) = "1"
+countAndSay(2) = say "1" = one 1 = "11"
+countAndSay(3) = say "11" = two 1's = "21"
+countAndSay(4) = say "21" = one 2 + one 1 = "12" + "11" = "1211"
+```
+
+### my ans
+```
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        if (n==1) :
+            return "1"
+        
+        previous = self.countAndSay(n-1)
+        
+        result = ""
+        counter = 0
+        previousWord = previous[0]
+        for word in previous:
+            if previousWord != word:
+                result += str(counter) + previousWord
+                counter = 1
+                previousWord = word
+            else:
+                counter += 1
+        result += str(counter) + previousWord        
+        
+        return result
+```
+### ans
+```
+def countAndSay(n):
+    result = "1"
+    for _ in range(n - 1):
+        # original
+        # s = ''.join(str(len(list(group))) + digit for digit, group in itertools.groupby(s))
+        
+        # decomposed
+        v = '' # accumulator string
+        # iterate the characters (digits) grouped by digit
+        for digit, group in itertools.groupby(result):
+            count = len(list(group)) # eg. the 2 in two 1s 
+            v += "%i%s" % (count, digit) # create the 21 string and accumulate it
+        result = v # save to result for the next for loop pass
+
+    # return the accumulated string
+    return result
+```
+
+## longest-common-prefix
+```
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+```
+### my ans
+```
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        commonPrefix = strs[0]
+        
+        for i in range(1,len(strs)):
+            for j in range(len(commonPrefix)):
+                if j > len(strs[i])-1:
+                    commonPrefix = commonPrefix[:j]   
+                    break
+                if commonPrefix[j] != strs[i][j]:
+                    if  i==0 :
+                        return ""
+                    else:
+                        commonPrefix = commonPrefix[:j]                        
+                        break
+        
+        return commonPrefix
+```        
+        
+### ans
+```
+ def longestCommonPrefix(self, strs):
+        if not strs:
+            return ""
+        shortest = min(strs,key=len)
+        for i, ch in enumerate(shortest):
+            for other in strs:
+                if other[i] != ch:
+                    return shortest[:i]
+        return shortest 
+```        
