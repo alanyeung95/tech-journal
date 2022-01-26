@@ -1,8 +1,11 @@
 ## Adam
+
 ### What is the Adam optimization algorithm?
+
 Adam is an optimization algorithm that can be used instead of the classical stochastic gradient descent procedure to update network weights iterative based in training data.
 
 ### How Does Adam Work?
+
 Adam is different to classical stochastic gradient descent.
 
 Stochastic gradient descent maintains a single learning rate (termed alpha) for all weight updates and the learning rate does not change during training.
@@ -21,14 +24,15 @@ Ref:
 https://machinelearningmastery.com/adam-optimization-algorithm-for-deep-learning/#:~:text=Adam%20is%20an%20optimization%20algorithm,iterative%20based%20in%20training%20data.&text=The%20algorithm%20is%20called%20Adam,derived%20from%20adaptive%20moment%20estimation.
 
 ## Perplexity
+
 Perplexity is an interesting measure of how well you're predicting something
 
 Note that a human, after seeing that the first number is 1 and the second is 2, might guess that the third is 3, and so on. So a human is a better predictor than a die, and would have a lower perplexity
 
 https://planspace.org/2013/09/23/perplexity-what-it-is-and-what-yours-is/
 
+## Principal components analysis
 
-## Principal components analysis 
 For dimensionality reduction
 
 When you have a representation of your words in a high dimensional space.
@@ -37,7 +41,4 @@ You could use an algorithm like PCA
 to get a representation on a vector space with fewer dimensions.
 
 If you want to visualize your data,
-you can get a reduced representation with three or fewer features. 
-
-## Cross Entropy
-https://medium.com/swlh/cross-entropy-loss-in-pytorch-c010faf97bab
+you can get a reduced representation with three or fewer features.
