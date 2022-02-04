@@ -1,16 +1,25 @@
 ## extensions
-*  docker
-* eslint
-* fix json
-* git history
-* javascript and typescript nightly
-* npm
-* prettier
+```
+code --list-extensions 
+```
+### common
 
+```
+dbaeumer.vscode-eslint
+donjayamanne.githistory
+eg2.vscode-npm-script
+esbenp.prettier-vscode
+ms-azuretools.vscode-docker
+ms-vscode-remote.remote-containers
+ms-vscode.vscode-typescript-next
+oliversturm.fix-json
+```
 ### others
-* go
-* tslint vue
-* vue
+```
+golang.go
+prograhammer.tslint-vue
+jcbuisson.vue
+```
 
 ## setting.json
 ```
