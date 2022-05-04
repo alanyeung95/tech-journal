@@ -23,3 +23,14 @@ export AWS_SECRET_ACCESS_KEY=xxx
 
 ### s3 bucket with command line
 https://ithelp.ithome.com.tw/articles/10192079
+
+## CloudWatch
+
+### Logs Insights
+sample query
+```
+fields @timestamp, log
+| sort @timestamp desc
+| filter kubernetes.container_name = 'xxxx-xxxx'
+| limit 30
+```
