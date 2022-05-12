@@ -13,6 +13,35 @@ print 'Number of arguments:', len(sys.argv), 'arguments.'
 print 'Argument List:', str(sys.argv)
 ```
 
+## pandas
+
+read file as json
+```
+import requests
+import json
+import pandas as pd
+import sys
+
+with open("config.json", "r") as jsonfile:
+    config = json.load(jsonfile)
+
+batchsize = 2
+df = pd.read_csv("sample.csv"])
+result = df.to_json(orient="records")
+parsed = json.loads(result)
+for i in range(0, len(parsed), batchsize):
+    batchIndex = i+batchsize
+    if batchIndex > len(parsed) :
+        batchIndex = len(parsed)
+    batch = parsed[i:batchIndex]
+
+    reqBody = {
+        "data": batch
+    }
+
+    response = requests.post('{}/xxxxxxx?apiKey={}'.format(config["host"],config["apiKey"]), json=reqBody)
+```
+
 # doctest
 The doctest module searches for pieces of text that look like `interactive Python sessions`, 
 and then executes those sessions to verify that they work exactly as shown.
