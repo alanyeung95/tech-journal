@@ -20,7 +20,6 @@ read file as json
 import requests
 import json
 import pandas as pd
-import sys
 
 with open("config.json", "r") as jsonfile:
     config = json.load(jsonfile)
