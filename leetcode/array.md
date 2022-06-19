@@ -1,3 +1,24 @@
+## find-all-numbers-disappeared-in-an-array
+```
+Example 1:
+
+Input: nums = [4,3,2,7,8,2,3,1]
+Output: [5,6]
+Example 2:
+
+Input: nums = [1,1]
+Output: [2]
+```
+
+### ans
+```
+def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        for i in range(len(nums)):
+            index = abs(nums[i]) - 1
+            nums[index] = - abs(nums[index])
+            
+        return [i + 1 for i in range(len(nums)) if nums[i] > 0]  
+```
 ## plus-one
 ```
 Input: digits = [1,2,3]
