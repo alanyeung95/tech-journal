@@ -1,4 +1,4 @@
-# Git-Notes
+## common
 
 How to fix committing to master instead of branch?
 
@@ -23,6 +23,11 @@ point local repo to new url after renaming it
 
 ```
 git remote set-url origin https://github.com/xxxxx.git
+```
+
+clone specific branch
+```
+git clone --branch <branchname> <remote-repo-url>
 ```
 
 ## rebase
