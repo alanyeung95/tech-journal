@@ -24,3 +24,8 @@ put these changes inside `web.config`
 # Deployment
 ## deploy apps to IIS server
 https://www.youtube.com/watch?v=Q_A_t7KS5Ss
+
+## checklist
+1. add `<system.web><customErrors mode="Off"/></system.web>` into web.config so that api will display error instead of stand `"an error has occurred"`
+- https://stackoverflow.com/questions/13020103/webapis-messagean-error-has-occurred-on-iis7-not-in-iis-express
+2. 
