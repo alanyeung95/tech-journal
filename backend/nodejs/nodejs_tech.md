@@ -1,3 +1,21 @@
+## axios
+### auth head with query string
+```
+    const params = new URLSearchParams([]);
+    params.append('queryA', 'true');
+    
+    await axios.get(
+      `http://localhost:3000/test`,
+      {
+        auth: {
+          username: process.env.CLIENT_ID,
+          password: process.env.CLIENT_SECRET,
+        },
+        params,
+      }
+    );
+```
+
 ## Nodejs resources
 1. playground: https://www.katacoda.com/courses/nodejs/playground
 2. core modules: https://flaviocopes.com/node-core-modules/
