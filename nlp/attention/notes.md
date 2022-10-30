@@ -159,3 +159,8 @@ ref:
 
 - https://zhuanlan.zhihu.com/p/115741192
 - https://www.6aiq.com/article/1583729200869
+
+## Useful links:
+- nlp中的Attention注意力机制+Transformer详解: https://zhuanlan.zhihu.com/p/53682800
+- Attention模型详解: https://nocater.github.io/2019/01/13/Attention模型详解/
+- Attention和Transformer: https://zhuanlan.zhihu.com/p/38485843
