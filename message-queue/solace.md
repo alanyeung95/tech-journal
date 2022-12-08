@@ -8,6 +8,33 @@ For some use cases, the ingress rate (publish message rate) may be too fast for 
 
 Based on the acknowledgment rate from the consumer, the broker will deliver the messages at the appropriate rate. This is often referred to as a competing consumer pattern.
 
+## kerberos connecton
+Kerberos provides a centralized authentication server whose function is to authenticate users to servers and servers to users. In Kerberos Authentication server and database is used for client authentication. Kerberos runs as a third-party trusted server known as the Key Distribution Center (KDC). Each user and service on the network is a principal. 
+
+### entity
+![image](https://user-images.githubusercontent.com/45751387/206384363-1ad832d4-0089-4c0a-b05a-b622e94247fa.png)
+
+1. Kerberos principals. Any unique identity that Kerberos can assign a ticket to. For most users, a principal is the same as a user ID. It also includes hosts and services that can be assigned Kerberos tickets. Individual clients are one type of Kerberos principal. The service principal is an identity assigned to an application service that is accessed through Kerberos.
+
+2. Kerberos application servers. Any system providing access to resources that need client authentication through Kerberos. For example, application servers can include file and print services, terminal emulation, remote computing and email.
+
+3. Kerberos KDC (key distribution center). 
+
+### .net service authorization with kerberos 
+make sure the krun the windows service/ visual studio as a different domain user
+![image](https://user-images.githubusercontent.com/45751387/206383407-5144deb5-9670-463c-a961-7472f07cadcb.png)
+
+### ref
+https://www.geeksforgeeks.org/kerberos/
+
+## SSL auth
+1. install cert (root cert and other certs) to windows credential manager)
+2. load those cert inside .net application as truststore
+
+
+### ref
+https://stackoverflow.com/questions/1205295/get-list-of-certificates-from-the-certificate-store-in-c-sharp
+
 ## connectoin code
         private static  ISession SessionOpen(EventHandler<MessageEventArgs> handleMessageEvent, SolaceSession ss)
         {
@@ -100,3 +127,10 @@ Based on the acknowledgment rate from the consumer, the broker will deliver the 
         }
 
 ```
+
+## troubleshooting
+### 1. Error loading 'libsolclient.dll'
+https://stackoverflow.com/questions/44376366/error-loading-libsolclient-dll
+
+### 2. Could not load file or assembly or one of its dependencies. An attempt was made to load a program with an incorrect format.
+https://stackoverflow.com/questions/13134769/could-not-load-file-or-assembly-or-one-of-its-dependencies-an-attempt-was-made
