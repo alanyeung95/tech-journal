@@ -30,6 +30,7 @@ https://ithelp.ithome.com.tw/articles/10192079
 sample query
 ```
 fields @timestamp, log
+| filter @message like /target_string/
 | sort @timestamp desc
 | filter kubernetes.container_name = 'xxxx-xxxx'
 | limit 30
