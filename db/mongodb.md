@@ -95,8 +95,10 @@ We can also know if the query is using an index: A query that uses an index has 
 
 Reference: https://ithelp.ithome.com.tw/articles/10185596
 
-## ReplicaSet
+## ReplicaSet & HA
 https://blog.toright.com/posts/4508/mongodb-replica-set-高可用性架構搭建.html
+
+production issues: https://www.stackhero.io/en/services/MongoDB/documentations/Replica-set-HA
 
 ## Sharding
 Divide data into different machine
