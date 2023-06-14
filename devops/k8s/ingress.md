@@ -54,3 +54,19 @@ Events:
   ----     ------  ----               ----                     -------
   Normal   ADD     22s                loadbalancer-controller  default/test
  ```
+ 
+## set header on k8s ingress 
+
+first need to ensure `allow-snippet-annotations` inside ingress-nginx-controller configmap is true
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/affinity: cookie
+    nginx.ingress.kubernetes.io/affinity-mode: persistent
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      more_set_headers "X-Frame-Options: SAMEORIGIN";
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+```
