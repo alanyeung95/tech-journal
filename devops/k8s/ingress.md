@@ -70,3 +70,8 @@ metadata:
       more_set_headers "X-Frame-Options: SAMEORIGIN";
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
 ```
+
+### X-Frame-Options: SAMEORIGIN
+
+### Set-Cookie: HttpOnly
+https://www.cookiepro.com/knowledge/httponly-cookie/
