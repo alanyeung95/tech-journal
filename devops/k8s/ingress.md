@@ -75,3 +75,8 @@ metadata:
 
 ### Set-Cookie: HttpOnly
 https://www.cookiepro.com/knowledge/httponly-cookie/
+
+### cache-control
+```
+more_set_headers "Cache-Control: no-store,no-cache";
+```
