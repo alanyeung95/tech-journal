@@ -83,6 +83,24 @@ The following aggregation operation uses the $group stage to retrieve the distin
 ```
 db.sales.aggregate( [ { $group : { _id : "$item" } } ] )
 ```
+
+### example3:
+return the documents where the number of `item` is not equal to 2.
+```
+db.collection.aggregate([
+  {
+    $match: {
+      $expr: {
+        $ne: [
+          { $size: "$item" },
+          2
+        ]
+      }
+    }
+  }
+])
+```
+
 ## Query/Cursor explain
 ```
 db.test.find({"x" : 1}).limit(1).explain("executionStats")
@@ -132,6 +150,10 @@ import json array
 mongoimport --db dbName --collection collectionName --file fileName.json --jsonArray
 ```
 
+import csv
+```
+mongoimport --host localhost --port 27017 --db your_database_name --collection your_collection_name --type csv --headerline --file your_file.csv
+```
 
 ## Journal
 ```
