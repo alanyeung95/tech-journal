@@ -90,5 +90,5 @@ Here is the screenshot you may expect to see
 Here I have a simple java code on Eclipse
 <img src="diagram/diagram-3.jpg"/>
 
-Try to run the program, and here we can see the student records from database
+Try to run the program, and here we try to use create and delete operation on a new student record using java JDBC SQL. And finally can list the student records from database.
 <img src="diagram/diagram-4.jpg"/>
