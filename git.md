@@ -1,4 +1,4 @@
-## common
+## Common
 
 How to fix committing to master instead of branch?
 
@@ -38,7 +38,25 @@ git branch -m old-branch-name new-branch-name
 git push origin -u new-branch-name
 ```
 
-## rebase
+# rebase
 
 https://www.atlassian.com/git/tutorials/merging-vs-rebasing
 
+# Remove file from history
+Use the `git filter-branch` command, which will rewrite your commit history to remove the file.
+
+This command will go through all your commits and tags and remove the specified .env file from them.
+
+```
+git filter-branch --force --index-filter \
+"git rm --cached --ignore-unmatch .env" \
+--prune-empty --tag-name-filter cat -- --all
+```
+
+Force push your changes to the remote repository:
+
+After you've rewritten your history, you'll need to force push your changes to overwrite the history on GitHub:
+```
+git push origin --force --all
+git push origin --force --tags
+```
