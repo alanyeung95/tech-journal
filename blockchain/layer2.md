@@ -36,5 +36,48 @@ The optimistic rollups's operation is controlled by smart contracts running on E
 ### Off-chain virtual machine (VM)
 Although contracts managing the optimistic rollup protocol run on Ethereum, the rollup protocol performs computation and state storage on another virtual machine separate from the Ethereum Virtual Machine. The off-chain VM is where applications live and state changes are executed; it serves as the upper layer or "layer 2" for an optimistic rollup.
 
+## HOW DO OPTIMISTIC ROLLUPS WORK?
 
+### State commitments
+At any point in time, the optimistic rollup’s state (accounts, balances, contract code, etc.) is organized as a Merkle tree called a “state tree”. The root of this Merkle tree (state root), which references the rollup’s latest state, is hashed and stored in the rollup contract. Every state transition on the chain produces a new rollup state, which an operator commits to by computing a new state root.
 
+The operator is required to submit both old state roots and new state roots when posting batches. If the old state root matches the existing state root in the on-chain contract, the latter is discarded and replaced with the new state root.
+
+### Fraud proving
+optimistic rollups allow anyone to publish blocks without providing proofs of validity. However, to ensure the chain remains safe, optimistic rollups specify a time window during which anyone can dispute a state transition. Hence, rollup blocks are called “assertions” since anyone can dispute their validity
+
+If someone disputes an assertion, then the rollup protocol will initiate the fraud proof computation. Every type of fraud proof is interactive—someone must post an assertion before another person can challenge it. The difference lies in how many rounds of interaction are required to compute the fraud proof.
+
+Single-round interactive proving schemes replay disputed transactions on L1 to detect invalid assertions. The rollup protocol emulates the re-execution of the disputed transaction on L1 (Ethereum) using a verifier contract, with the computed state root determining who wins the challenge. If the challenger's claim about the rollup’s correct state is correct, the operator is penalized by having their bond slashed.
+
+### Multi-round interactive proving
+Multi-round interactive proving involves a back-and-forth protocol between the asserter and challenger overseen by an L1 verifier contract, which ultimately decides the lying party. After an L2 node challenges an assertion, the asserter is required to divide the disputed assertion into two equal halves. Each individual assertion in this case will contain as many steps of computation as the other.
+
+The challenger will then choose what assertion it wants to challenge. The dividing process (called a “bisection protocol”) continues until both parties are disputing an assertion about a single step of execution. At this point, the L1 contract will resolve the dispute by evaluating the instruction (and its result) to catch the fraudulent party.
+
+The asserter is required to provide a “one-step proof” verifying the validity of the disputed single-step computation. If the asserter fails to provide the one-step proof, or the L1 verifier deems the proof invalid, they lose the challenge.
+
+### Why fraud proofs matter for optimistic rollups
+Fraud proofs are important because they facilitate trustless finality in optimistic rollups. Trustless finality is a quality of optimistic rollups that guarantees that a transaction—so long as it’s valid—will eventually be confirmed.
+
+Malicious nodes can try to delay the confirmation of a valid rollup block by starting false challenges. However, fraud proofs will eventually prove the rollup block’s validity and cause it to be confirmed.
+
+This also relates to another security property of optimistic rollups: the validity of the chain relies on the existence of one honest node. The honest node can advance the chain correctly by either posting valid assertions or disputing invalid assertions. Whatever the case, malicious nodes who enter into disputes with the honest node will lose their stakes during the fraud proving process.
+
+### L1/L2 interoperability
+#### Asset movement
+https://ethereum.org/developers/docs/scaling/optimistic-rollups#asset-movement
+
+#### EVM compatibility
+For developers, the advantage of optimistic rollups is their compatibility—or, better still, equivalence—with the Ethereum Virtual Machine (EVM). EVM-compatible rollups comply with specifications in the Ethereum Yellow Paper(opens in a new tab) and support the EVM at the bytecode level.
+
+EVM-compatibility in optimistic rollups has the following benefits:
+
+i. Developers can migrate existing smart contracts on Ethereum to optimistic rollup chains without having to modify codebases extensively. This can save development teams time when deploying Ethereum smart contracts on L2.
+
+## HOW DO OPTIMISTIC ROLLUP FEES WORK?
+State write: Optimistic rollups publish transaction data and block headers (consisting of the previous block header hash, state root, batch root) to Ethereum as calldata. The minimum cost of an Ethereum transaction is 21,000 gas. Optimistic rollups can reduce the cost of writing the transaction to L1 by batching multiple transactions in a single block (which amortizes the 21k gas over multiple user transactions).
+
+calldata: Beyond the base transaction fee, the cost of each state write depends on the size of calldata posted to L1. calldata costs are currently governed by EIP-1559(opens in a new tab), which stipulates a cost of 16 gas for non-zero bytes and 4 gas for zero bytes of calldata, respectively. To reduce user fees, rollup operators compress transactions to reduce the number of calldata bytes published on Ethereum.
+
+L2 operator fees: This is the amount paid to the rollup nodes as compensation for computational costs incurred in processing transactions, much like gas fees on Ethereum. Rollup nodes charge lower transaction fees since L2s have higher processing capacities and aren't faced with the network congestions that force validators on Ethereum to prioritize transactions with higher fees.
