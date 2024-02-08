@@ -81,3 +81,16 @@ State write: Optimistic rollups publish transaction data and block headers (cons
 calldata: Beyond the base transaction fee, the cost of each state write depends on the size of calldata posted to L1. calldata costs are currently governed by EIP-1559(opens in a new tab), which stipulates a cost of 16 gas for non-zero bytes and 4 gas for zero bytes of calldata, respectively. To reduce user fees, rollup operators compress transactions to reduce the number of calldata bytes published on Ethereum.
 
 L2 operator fees: This is the amount paid to the rollup nodes as compensation for computational costs incurred in processing transactions, much like gas fees on Ethereum. Rollup nodes charge lower transaction fees since L2s have higher processing capacities and aren't faced with the network congestions that force validators on Ethereum to prioritize transactions with higher fees.
+
+## Pros and cons of optimistic rollups
+### Pros
+1. Offers massive improvements in scalability without sacrificing security or trustlessness.
+2. Transaction data is stored on the layer 1 chain, improving transparency, security, censorship-resistance, and decentralization.
+3. Computing fraud proofs is open to regular L2 node, unlike validity proofs (used in ZK-rollups) that require special hardware.
+4. Compatibility with EVM and Solidity allows developers to port Ethereum-native smart contracts to rollups or use existing tooling to create new dapps.
+
+### Cons
+1. Centralized rollup operators (sequencers) can influence transaction ordering.
+2. Security model relies on at least one honest node executing rollup transactions and submitting fraud proofs to challenge invalid state transitions.
+3. Users must wait for the one-week challenge period to expire before withdrawing funds back to Ethereum.
+4. Rollups must post all transaction data on-chain, which can increase costs.
