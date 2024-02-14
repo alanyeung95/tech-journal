@@ -174,3 +174,43 @@ ZK-STARKs are also secure against quantum computers, while the Elliptic Curve Cr
 
 ### How do validity proofs work in ZK-rollups?
 https://ethereum.org/developers/docs/scaling/zk-rollups#validity-proofs-in-zk-rollups
+
+## zkEVM
+Like the EVM, a zkEVM transitions between states after computation is performed on some inputs. The difference is that the zkEVM also creates zero-knowledge proofs to verify the correctness of every step in the program’s execution. Validity proofs could verify the correctness of operations that touch the VM’s state (memory, stack, storage) and the computation itself (i.e., did the operation call the right opcodes and execute them correctly?).
+
+## HOW DO ZK-ROLLUP FEES WORK?
+How much users pay for transactions on ZK-rollups is dependent on the gas fee, just like on Ethereum Mainnet. However, gas fees work differently on L2 and are influenced by the following costs:
+
+1. State write: There is a fixed cost for writing to Ethereum’s state (i.e., submitting a transaction on the Ethereum blockchain). ZK-rollups reduce this cost by batching transactions and spreading fixed costs across multiple users.
+
+2. Data publication: ZK-rollups publish state data for every transaction to Ethereum as calldata. calldata costs are currently governed by EIP-1559, which stipulates a cost of 16 gas for non-zero bytes and 4 gas for zero bytes of calldata, respectively. The cost paid on each transaction is influenced by how much calldata needs to be posted on-chain for it.
+
+3. L2 operator fees: This is the amount paid to the rollup operator as compensation for computational costs incurred in processing transactions, much like miner fees on Ethereum.
+
+4. Proof generation and verification: ZK-rollup operators must produce validity proofs for transaction batches, which is resource-intensive. Verifying zero-knowledge proofs on Mainnet also costs gas (~ 500,000 gas).
+
+Apart from batching transactions, ZK-rollups reduce fees for users by compressing transaction data. You can see a real-time overview of how it costs to use Ethereum ZK-rollups.
+
+## HOW DO ZK-ROLLUPS SCALE ETHEREUM?
+### Transaction data compression
+ZK-rollups extend the throughput on Ethereum’s base layer by taking computation off-chain, but the real boost for scaling comes from compressing transaction data. Ethereum’s block size limits the data each block can hold and, by extension, the number of transactions processed per block. By compressing transaction-related data, ZK-rollups significantly increase the number of transactions processed per block.
+
+ZK-rollups can compress transaction data better than optimistic rollups since they don't have to post all the data required to validate each transaction. They only have to post the minimal data required to rebuild the latest state of accounts and balances on the rollup.
+
+### Recursive proofs
+An advantage of zero-knowledge proofs is that proofs can verify other proofs. For example, a single ZK-SNARK can verify other ZK-SNARKs. Such "proof-of-proofs" are called recursive proofs and dramatically increase throughput on ZK-rollups.
+
+## Pros and cons of ZK-rollups
+### Pros
+1. Offers faster transaction finality as state updates are approved once validity proofs are verified on L1.
+2. Relies on trustless cryptographic mechanisms for security, not the honesty of incentivized actors as with optimistic rollups.
+3. Users benefit from greater capital efficiency and can withdraw funds from L2 without delays.
+4. Better data compression can help reduce the costs of publishing calldata on Ethereum and minimize rollup fees for users.
+
+### Cons
+1. The cost associated with computing and verifying validity proofs is substantial and can increase fees for rollup users.
+2. Building EVM-compatible ZK-rollups is difficult due to complexity of zero-knowledge technology.
+3. Producing validity proofs requires specialized hardware, which may encourage centralized control of the chain by a few parties.
+4. Hardware requirements may reduce the number of participants that can force the chain to make progress, increasing the risk of malicious operators freezing the rollup's state and censoring users.
+5. Some proving systems (e.g., ZK-SNARK) require a trusted setup which, if mishandled, could potentially compromise a ZK-rollup's security model.
+
