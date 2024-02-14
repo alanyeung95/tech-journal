@@ -94,3 +94,14 @@ L2 operator fees: This is the amount paid to the rollup nodes as compensation fo
 2. Security model relies on at least one honest node executing rollup transactions and submitting fraud proofs to challenge invalid state transitions.
 3. Users must wait for the one-week challenge period to expire before withdrawing funds back to Ethereum.
 4. Rollups must post all transaction data on-chain, which can increase costs.
+
+## Arbitrum vs Optimism
+The main technical difference between the two chains is that Optimism uses single-round fraud proofs while Arbitrum uses multi-round fraud proofs. In normal English, this means Optimism's method is faster but potentially more expensive due to higher gas fees because it's executed on the L1. Arbitrum's way takes more time but is more cost-effective.
+
+Moreover, Optimism uses the Ethereum Virtual Machine (EVM), while Arbitrum has its own Arbitrum Virtual Machine (AVM). That means Optimism's programming language is limited to Solidity. Arbitrum supports all EVM programming languages.
+
+## Optimism
+https://docs.optimism.io/
+
+## Arbitrum
+https://docs.arbitrum.io/intro
