@@ -1,6 +1,8 @@
 # Denormalization 
 Denormalization is a database optimization technique in which we add redundant data to one or more tables. This can help us avoid costly joins in a relational database.
 
+https://www.youtube.com/watch?v=vRqzFBTgGJA&ab_channel=ExamPro
+
 ## Pros of Denormalization:-
 1. Retrieving data is faster since we do fewer joins
 
