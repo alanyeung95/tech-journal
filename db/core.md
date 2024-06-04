@@ -1,3 +1,7 @@
+# Relational Database
+
+A relational database (RDB) is a way of structuring information in tables, rows, and columns. Table are related to one another (using foreign keys)
+
 # Denormalization 
 Denormalization is a database optimization technique in which we add redundant data to one or more tables. This can help us avoid costly joins in a relational database.
 
