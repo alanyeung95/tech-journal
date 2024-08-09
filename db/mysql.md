@@ -72,3 +72,6 @@ ROLLBACK TRAN
 ```
 
 https://stackoverflow.com/questions/19837655/sql-server-query-dry-run
+
+## Deadlock
+![Illustration](https://yuanchieh.page/post/2022/img/0425/01_2.png)
