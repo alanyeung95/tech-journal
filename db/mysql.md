@@ -56,4 +56,19 @@ ROLLBACK TRANSACTION;
 ```
 Every change in your script will then be undone.
 
+example:
+```
+BEGIN TRAN
+
+UPDATE  C
+SET column1 = 'XXX'
+FROM table1 C
+
+SELECT *
+FROM table1
+WHERE column1 = 'XXX'
+
+ROLLBACK TRAN
+```
+
 https://stackoverflow.com/questions/19837655/sql-server-query-dry-run
