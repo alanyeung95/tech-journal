@@ -42,3 +42,18 @@ left join employee_uin
 on employee.id=employee_uin.id
 where employee.age < 25
 ORDER BY employee.name asc, employee.id asc;
+
+## Good Practise
+
+### Transaction & Rollback
+Before you execute your script:
+```
+BEGIN TRANSACTION;
+```
+After you execute your script and have done your checking:
+```
+ROLLBACK TRANSACTION;
+```
+Every change in your script will then be undone.
+
+https://stackoverflow.com/questions/19837655/sql-server-query-dry-run
