@@ -124,3 +124,6 @@ Reference: https://www.youtube.com/watch?v=IYRYbPR5Gek
 https://spring.io/guides/gs/spring-boot-docker
 
 https://www.baeldung.com/dockerizing-spring-boot-application
+
+# Top Spring Boot Interview Questions and Answers
+https://www.geeksforgeeks.org/spring-boot-interview-questions-and-answers/
