@@ -75,3 +75,22 @@ https://stackoverflow.com/questions/19837655/sql-server-query-dry-run
 
 ## Deadlock
 ![Illustration](https://yuanchieh.page/post/2022/img/0425/01_2.png)
+
+solution:
+If every transaction locks records in the same sequence (e.g., always locking the record with the lower ID first), deadlocks can be avoided
+
+```
+-- Transaction 1
+BEGIN TRANSACTION;
+SELECT * FROM records WHERE id IN (1, 5) ORDER BY id FOR UPDATE;
+UPDATE records SET data = 'new data' WHERE id = 1;
+UPDATE records SET data = 'new data' WHERE id = 5;
+COMMIT;
+
+-- Transaction 2
+BEGIN TRANSACTION;
+SELECT * FROM records WHERE id IN (1, 5) ORDER BY id FOR UPDATE;
+UPDATE records SET data = 'new data' WHERE id = 1;
+UPDATE records SET data = 'new data' WHERE id = 5;
+COMMIT;
+```
