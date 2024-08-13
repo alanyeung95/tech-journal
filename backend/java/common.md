@@ -1,6 +1,11 @@
 ## What is an object?
 The object is a real-life entity that has certain properties and methods associated with it. The object is also defined as the instance of a class. An object can be declared using a new keyword.
 
+## Memory
+key concepts: stack, heap, garbage collection, young and old generation
+
+ref: https://www.baeldung.com/java-stack-heap, https://sematext.com/glossary/jvm-heap/
+
 ## 81. What is an Interface?
 An interface in Java is a collection of static final variables and abstract methods that define the contract or agreement for a set of linked classes. Any class that implements an interface is required to implement a specific set of methods. It specifies the behavior that a class must exhibit but not the specifics of how it should be implemented.
 
