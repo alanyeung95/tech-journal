@@ -144,7 +144,33 @@ No classes can be inherited from the class declared as final. But that final cla
 ## super
 in order to create a subclass, we must create a parent class first so that subclass can inherit the attributes
 
-# Ref
+## Thread Synchronization 
+
+### Method Synchronization
+1. https://www.tutorialspoint.com/java/java_thread_synchronization.htm
+2. https://www.javatpoint.com/synchronization-in-java
+
+```
+public synchronized void increment() {
+    count++;
+}
+```
+
+## Lock
+```
+Lock lock = new ReentrantLock();
+public void increment() {
+    lock.lock();
+    try {
+        count++;
+    } finally {
+        lock.unlock();
+    }
+}
+
+```
+
+## Ref
 1. from javascript to java: https://andresclavijo.co
 2. https://www.geeksforgeeks.org/java-interview-questions
 3. https://www.interviewbit.com/java-interview-questions/#java-platform-independent
