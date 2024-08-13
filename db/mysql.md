@@ -31,6 +31,35 @@ INNER JOIN orderdetails USING (orderNumber)
 GROUP BY orderNumber;
 ```
 
+### right join
+
+`employees` table
+| employee_id | employee_name | department_id |
+|-------------|---------------|---------------|
+| 1           | Alice         | 101           |
+| 2           | Bob           | 102           |
+| 3           | Charlie       | 103           |
+
+`departments` table
+| department_id | department_name |
+|---------------|-----------------|
+| 101           | HR              |
+| 102           | IT              |
+| 104           | Finance         |
+
+```
+SELECT employees.employee_name, departments.department_name
+FROM employees
+RIGHT JOIN departments ON employees.department_id = departments.department_id;
+```
+
+result 
+| employee_name | department_name |
+|---------------|-----------------|
+| Alice         | HR              |
+| Bob           | IT              |
+| NULL          | Finance         |
+
 
 ## Query the customer_number from the orders table for the customer who has placed the largest number of orders.
 https://leetcode.com/articles/customer-placing-the-largest-number-of-orders/
