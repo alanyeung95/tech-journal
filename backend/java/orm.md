@@ -12,6 +12,8 @@ So the code above does the same as the SQL query. Note that every ORM tool is bu
 ref: https://www.freecodecamp.org/news/what-is-an-orm-the-meaning-of-object-relational-mapping-database-tools/
 
 ## Hibernate example
+
+ref: https://www.tutorialspoint.com/hibernate/hibernate_examples.htm
 ```
 import java.util.List; 
 import java.util.Date;
