@@ -36,3 +36,6 @@ When adding new columns to a relational database like MySQL, it can lock up the 
 
 ## security
 sql injection exist in Mysql
+
+# Join
+Nested Loop Join, Hash Join, Sort Merge Join
