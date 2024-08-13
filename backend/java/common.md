@@ -125,5 +125,21 @@ public class Car {
     }
 ```
 
+## final
+
+### final variable:
+When a variable is declared as final in Java, the value can’t be modified once it has been assigned.
+If any value has not been assigned to that variable, then it can be assigned only by the constructor of the class.
+### final method:
+A method declared as final cannot be overridden by its children's classes.
+A constructor cannot be marked as final because whenever a class is inherited, the constructors are not inherited. Hence, marking it final doesn't make sense. Java throws compilation error saying - modifier final not allowed here
+### final class:
+No classes can be inherited from the class declared as final. But that final class can extend other classes for its usage.
+
+## super
+in order to create a subclass, we must create a parent class first so that subclass can inherit the attributes
+
 # Ref
-from javascript to java: https://andresclavijo.co
+1. from javascript to java: https://andresclavijo.co
+2. https://www.geeksforgeeks.org/java-interview-questions
+3. https://www.interviewbit.com/java-interview-questions/#java-platform-independent
