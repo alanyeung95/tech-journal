@@ -170,6 +170,9 @@ public void increment() {
 
 ```
 
+## Hashmap
+ref: https://www.youtube.com/watch?app=desktop&v=c3RVW3KGIIE
+
 ## Ref
 1. from javascript to java: https://andresclavijo.co
 2. https://www.geeksforgeeks.org/java-interview-questions
