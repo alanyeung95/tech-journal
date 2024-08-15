@@ -9,3 +9,5 @@ RDB + AOF: You can also combine both AOF and RDB in the same instance.
 
 ## data type
 ![img](https://estuary.dev/static/4ff882a8a0e3d2ffe69114d10bc2ca58/ac23c/02_Redis_Data_Types_Data_Types_51e474ec05.avif)
+
+ref: https://estuary.dev/redis-data-types/
