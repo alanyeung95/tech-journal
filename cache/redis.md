@@ -7,7 +7,22 @@ No persistence: You can disable persistence completely. This is sometimes used w
 
 RDB + AOF: You can also combine both AOF and RDB in the same instance.
 
-## data type
+## Data type
 ![img](https://estuary.dev/static/4ff882a8a0e3d2ffe69114d10bc2ca58/ac23c/02_Redis_Data_Types_Data_Types_51e474ec05.avif)
 
 ref: https://estuary.dev/redis-data-types/
+
+## Cache strategy
+1. LRU
+2. LFU
+3. Random
+4. TTL
+```
+redis> SET mykey "Hello"
+"OK"
+redis> EXPIRE mykey 10
+(integer) 1
+redis> TTL mykey
+(integer) 10
+redis> 
+```
