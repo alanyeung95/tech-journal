@@ -1,3 +1,6 @@
+# P vs NP-Hard
+https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
+
 # Red-Black Tree
 
 Red-black trees are a type of self-balancing binary search tree, an advanced form of binary trees that ensure operations such as insertions, deletions, and lookups can be performed in logarithmic time complexity, 𝑂(log 𝑛). This self-balancing property is crucial for maintaining performance efficiencies in dynamic datasets where frequent modifications are required.
@@ -109,27 +112,8 @@ class Solution:
         else:
             return 0
 ```
-# DP
-```
-public class Solution {
-    public int climbStairs(int n) {
-        int[] dp = new int[n + 1];
-        if (n == 1) {
-            return 1;
-        }
-        if (n == 2) {
-            return 2;
-        }
-        dp[0] = 0;
-        dp[1] = 1;
-        dp[2] = 2;
-        for (int i = 3; i <= n; i++) {
-          dp[i] = dp[i-1] + dp[i - 2];
-        }
-        return dp[n];
-    }
-}
-```
+
+
 
 # windos
 ```
