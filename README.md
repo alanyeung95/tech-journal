@@ -1,7 +1,5 @@
 Welcome to my personal tech journal, where I record everything I've learned from the workplace, studies, and job interviews. I believe in learning something new every month, confident that someday this knowledge will prove useful.
 
-This version maintains your original meaning but streamlines the language for clarity and impact.
-
 Here is the directory tree:
 
 ```
