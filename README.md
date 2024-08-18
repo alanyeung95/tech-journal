@@ -11,7 +11,7 @@ Here is the directory tree:
 │   └── nlp
 ├── backend
 │   ├── c#.net
-│   ├── elasticsearch.md
+│   ├── elasticsearch
 │   ├── go
 │   ├── java
 │   ├── javascript.md
@@ -50,16 +50,11 @@ Here is the directory tree:
 ├── devops
 │   ├── docker.md
 │   └── k8s
-├── elasticsearch.md
 ├── frontend
 │   ├── jest
 │   ├── reactjs.md
 │   └── vuejs.md
 ├── git.md
-├── gpu-computing
-│   ├── core.md
-│   ├── cpu_vs_gpu.py
-│   └── test_single_gpu.py
 ├── math
 │   ├── integration
 │   ├── linear-algebra
@@ -67,13 +62,13 @@ Here is the directory tree:
 ├── message-queue
 │   ├── rabbitmq
 │   └── solace.md
-├── microservices.md
 ├── networking
 │   ├── cdn.md
 │   └── http-header.md
 ├── os
 │   └── windows.md
 ├── others
+│   ├── gpu-computing
 │   └── others.md
 ├── payment
 │   └── paypal
@@ -82,17 +77,18 @@ Here is the directory tree:
 ├── project-management
 │   ├── agile.md
 │   └── project-management.md
-├── security.md
 ├── system-design
 │   ├── GraphQL
 │   ├── centralised-crypto-exchange.md
 │   ├── grpc
+│   ├── microservices.md
 │   └── pagination.md
 └── web
     ├── common.md
-    └── nginx.md
+    ├── nginx.md
+    └── security.md
 
-38 directories, 50 files
+39 directories, 45 files
 ```
 
 The tree directory could be generated from the cmd:
