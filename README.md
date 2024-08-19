@@ -32,7 +32,7 @@ Here is the directory tree:
 │   ├── ghast-protocol.pdf
 │   ├── layer2.md
 │   └── security.md
-├── cache
+├── caching
 │   └── redis.md
 ├── cloud
 │   ├── alicloud.md
@@ -40,13 +40,17 @@ Here is the directory tree:
 ├── config
 │   ├── bash_profile
 │   └── vscode.md
-├── data-structure-algorithm.md
+├── data-structure-algorithm
+│   ├── algoritm.md
+│   └── data-structure.md
 ├── db
 │   ├── core.md
+│   ├── dirty-read-write.md
+│   ├── locking.md
 │   ├── mongodb
-│   ├── mysql.md
+│   ├── mysql
 │   ├── percona.md
-│   └── progresql.md
+│   └── postgresql
 ├── devops
 │   ├── docker.md
 │   └── k8s
@@ -72,8 +76,6 @@ Here is the directory tree:
 │   └── others.md
 ├── payment
 │   └── paypal
-├── postgresql
-│   └── postgresql.md
 ├── project-management
 │   ├── agile.md
 │   └── project-management.md
@@ -88,7 +90,7 @@ Here is the directory tree:
     ├── nginx.md
     └── security.md
 
-39 directories, 45 files
+41 directories, 45 files
 ```
 
 The tree directory could be generated from the cmd:
