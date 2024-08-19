@@ -1,24 +1,43 @@
-## dirty read and dirty write
+In the context of database operations and concurrency control, there are two main locking strategies
 
-### Dirty Read
-A **dirty read** occurs when a transaction reads data that has been modified by another transaction but not yet committed. These reads are "dirty" because the data could potentially be rolled back if the modifying transaction does not complete successfully, meaning the reading transaction could end up with data that was never officially saved into the database.
+## Pessimistic Locking
 
-**Example of Dirty Read:**
-1. Transaction A modifies a record (e.g., changes the balance of an account).
-2. Before Transaction A commits the changes, Transaction B reads the modified balance.
-3. If Transaction A fails and rolls back after Transaction B reads the data, Transaction B now has an incorrect view of the data that never actually existed in the database.
+**Pessimistic locking** assumes that conflicts are likely to happen and therefore takes a conservative approach by locking data before it's read or modified, preventing other transactions from accessing the locked data until the lock is released. This approach is similar to traditional locking mechanisms, such as read and write locks, that directly prevent concurrent access to data.
 
-### Dirty Write
-A **dirty write** occurs when a transaction modifies data that another transaction has also modified before either transaction commits. This can lead to data integrity issues because one transaction may overwrite changes made by the other without realizing it.
+- **Usage**: Pessimistic locking is typically used when the likelihood of data conflicts is high, or when the cost of a transaction failure is significant. It is common in systems where data integrity is critical and conflicts are common.
+- **Implementation**: This can be done through explicit table locks, row locks, or other database-specific locking mechanisms.
+- **Characteristics**:
+  - Locks data early to prevent concurrent modifications.
+  - Can lead to deadlocks if not managed correctly.
+  - May impact system performance due to longer wait times for locked resources.
 
-**Example of Dirty Write:**
-1. Transaction A modifies a record (e.g., updates a customer address).
-2. Before Transaction A commits its changes, Transaction B also updates the same customer address to a different value and commits.
-3. If Transaction A later commits, it will overwrite the changes made by Transaction B without knowing that the record was altered, potentially leading to lost updates and inconsistencies.
+## Optimistic Locking
 
-### Handling Dirty Reads and Writes
-To prevent these issues, most relational database management systems (RDBMS) provide different levels of transaction isolation:
-- **Read Uncommitted**: This level allows dirty reads, meaning transactions can see changes made by other transactions before they are committed. However, it does not prevent dirty reads but does allow them.
-- **Read Committed**: This is a commonly used isolation level that prevents dirty reads. Transactions can only read data that has been committed.
-- **Repeatable Read**: This isolation level prevents dirty reads and ensures that if a transaction reads a record twice in its scope, it will get the same values each time, even if other transactions are trying to modify it.
-- **Serializable**: This is the strictest isolation level, where transactions are effectively isolated from each other as if they are serialized. It prevents dirty reads, dirty writes, and other concurrency issues like phantom reads.
+**Optimistic locking**, in contrast, assumes that conflicts are rare and does not lock data when it's read. Instead, it checks if the data was modified by another transaction before it commits changes. If a conflict is detected (usually through version numbering or timestamps), the transaction is rolled back, and the application can retry the operation.
+
+- **Usage**: Optimistic locking is used when the likelihood of conflicts is low, which makes it suitable for high-concurrency environments or systems where locking-induced delays are unacceptable.
+- **Implementation**: This often involves adding a version number or timestamp to each record. When updating a record, the transaction checks if the record’s version number has changed since it was last read. If it has, the update is aborted because another transaction has modified the record.
+- **Characteristics**:
+  - Does not prevent other transactions from accessing data simultaneously.
+  - Reduces the potential for deadlocks.
+  - Suitable for applications with low conflict rates but high levels of concurrency.
+
+### Examples
+
+**Pessimistic Locking Example**:
+In SQL Server, you might use a `SELECT` statement with a locking hint to ensure pessimistic locking:
+
+```sql
+SELECT * FROM accounts WITH (UPDLOCK, HOLDLOCK) WHERE account_id = 1;
+```
+
+**Optimistic Locking Example**:
+In a system with a `version` column in a table, an update might look like this:
+
+```sql
+UPDATE accounts
+SET balance = balance + 100, version = version + 1
+WHERE account_id = 1 AND version = @version;
+```
+
+Here, `@version` is the version number read by the application. If the version has changed since it was read, the `UPDATE` statement affects 0 rows, indicating a conflict.
