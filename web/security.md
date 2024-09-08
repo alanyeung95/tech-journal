@@ -68,3 +68,18 @@ SSO is a method that allows users to authenticate once and access multiple appli
 OAuth, on the other hand, is an open standard for authorization (not authentication). It allows users to grant third-party applications access to their resources (e.g. data) without sharing their credentials. OAuth does not provide authentication, but it can be used in conjunction with other protocols, such as SSO, to provide a seamless user experience.
 
 In summary, SSO is used for authenticating users, while OAuth is used for granting access to resources. OAuth can be used as part of an SSO solution, but it is not a replacement for SSO.
+
+# Endpoint Security
+
+Endpoint protection works via a combination of network and device-level defenses. At the network level, the organization may restrict access to the enterprise network based on a device’s compliance with corporate security policies and least privilege. By blocking insecure devices from accessing the corporate network and sensitive resources, the organization restricts its attack surface and enforces its security policies.
+
+## Endpoint Protection Features (Components)
+- Anti-Malware: Endpoint protection solutions should detect and prevent infections by viruses, worms, and other malware.
+
+- Behavioral Analytics: Ransomware and other malware variants have unique behaviors that make them detectable without the use of signatures. By monitoring these behaviors, endpoint protection solutions can detect and respond to zero-day attacks.
+
+- Data Encryption: Encryption is the most effective way to protect data against unauthorized access and potential breach. Endpoint security solutions should offer full disk encryption (FDE) and support encryption of removable media.
+
+- URL Filtering: Malicious links are a commonly-used technique in phishing attacks, and inappropriate web usage on corporate devices impedes productivity and puts the company at risk. URL filtering helps prevent these threats by blocking malicious and inappropriate websites.
+
+ref: https://www.checkpoint.com/cyber-hub/threat-prevention/what-is-endpoint-security
