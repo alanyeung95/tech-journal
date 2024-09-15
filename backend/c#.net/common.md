@@ -12,5 +12,11 @@ JIT Compiler is an important component of CLR. It converts the MSIL code into na
 
 There are three types of JIT compilers -Pre, Econo, and Normal.
 
+## Global Assembly Cache (GAC)
+The Global Assembly Cache (GAC) is a feature in the .NET Framework that serves as a centralized repository for storing assemblies that need to be shared by multiple applications on a system. Here are the primary purposes and benefits of the GAC:
+
+### Sharing Assemblies
+The GAC allows different applications on the same machine to share common assemblies rather than having each application store its own copy. This not only saves disk space but also ensures that all applications are using the same version of an assembly, which can help maintain consistency and compatibility across applications.
+
 ## MCQs
 [https://www.includehelp.com/mcq/asp-net-mcqs.aspx](https://www.includehelp.com/mcq/csharp-multiple-choice-questions-mcqs.aspx)
