@@ -49,8 +49,19 @@ docker-compose run
 ```
 Runs a one-time command against a service. For example, the following command starts the web service and runs bash as its command. e.g. `$ docker-compose run web bash`
 
+```
+docker service scale mywebapp=5
+```
+scale a service
 
-## what is the meaning of '-it' flag in docker run cmd?
+
+# docker swarm
+
+Swarm mode is an advanced feature for managing a cluster of Docker daemons.
+
+ref: https://docs.docker.com/guides/deployment-orchestration/swarm-deploy/
+
+# what is the meaning of '-it' flag in docker run cmd?
 default will connect the stdout inside the container, if we want to input something into container, we need '-it' for stdin.
 The -it instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container.
 -i for stdin, stdout, stderr, -t for nice formatting
