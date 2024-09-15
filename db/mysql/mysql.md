@@ -136,3 +136,11 @@ UPDATE records SET data = 'new data' WHERE id = 1;
 UPDATE records SET data = 'new data' WHERE id = 5;
 COMMIT;
 ```
+
+## SQL Injection
+use `prepared` statement to prevent sql injection
+
+ref: https://www.securityjourney.com/post/how-to-prevent-sql-injection-vulnerabilities-how-prepared-statements-work
+
+## CONSTRAINT 
+https://www.programiz.com/sql/constraints
