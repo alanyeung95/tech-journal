@@ -29,14 +29,19 @@ How It Works: It involves granting a token (instead of credentials) that enables
 
 Use Case: For example, OAuth 2.0 is what allows a photo printing service to access your photos stored in a cloud storage service without you having to share your cloud storage login credentials with the photo service.
 
-example:
+Backend & Frontend ref: https://stackoverflow.com/a/38604676
+example: 
 
 sign in website X with google G:
 1. X request authorization to G
 2. G ask user for authorizaton
 3. user confirm G
-4. G create and send password to X
-5. X use password to get access token from G
+4. G create and send access token to X
+5. X could send access token to backend Y 
+6. Y could validate the token using G's API
+7. G validate token and send result to Y
+8. Y could generate another token like jwt that contain user or business info to communicate X
+ 
 access token:
 ```
 Authorization : Bearer cn389ncoiwuencr
