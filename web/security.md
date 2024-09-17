@@ -44,6 +44,9 @@ sign in website X with google G:
 8. Y could generate another token like jwt that contain user or business info to communicate X
  
 ### Access Token
+
+The access_token obtained from Google OAuth 2.0 is a key element in the OAuth authorization framework, enabling your application to access Google APIs on behalf of a user.
+
 ```
 Authorization : Bearer cn389ncoiwuencr
 ```
