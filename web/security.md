@@ -29,6 +29,7 @@ How It Works: It involves granting a token (instead of credentials) that enables
 
 Use Case: For example, OAuth 2.0 is what allows a photo printing service to access your photos stored in a cloud storage service without you having to share your cloud storage login credentials with the photo service.
 
+### ID Token
 Backend & Frontend ref: https://stackoverflow.com/a/38604676
 example: 
 
@@ -42,19 +43,21 @@ sign in website X with google G:
 7. G validate token and send result to Y
 8. Y could generate another token like jwt that contain user or business info to communicate X
  
-access token:
+### Access Token
 ```
 Authorization : Bearer cn389ncoiwuencr
 ```
 
-- different website X will have different password
-- X with password can only access to limited feature in G
-
-- ref: https://www.youtube.com/watch?v=CPbvxxslDTU, https://www.youtube.com/watch?v=THs9QUUXVhk
-- npm ref: https://www.youtube.com/watch?v=roxC8SMs7HU&t=0s
+ref: https://medium.com/automationmaster/getting-google-oauth-access-token-using-google-apis-18b2ba11a11a
 
 ### id token vs access token
 https://auth0.com/blog/id-token-access-token-what-is-the-difference/
+
+
+### Others
+- ref: https://www.youtube.com/watch?v=CPbvxxslDTU, https://www.youtube.com/watch?v=THs9QUUXVhk
+- npm ref: https://www.youtube.com/watch?v=roxC8SMs7HU&t=0s
+
 
 ## SSO
 https://www.youtube.com/watch?app=desktop&v=O1cRJWYF-g4
