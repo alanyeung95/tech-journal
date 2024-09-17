@@ -53,6 +53,9 @@ Authorization : Bearer cn389ncoiwuencr
 - ref: https://www.youtube.com/watch?v=CPbvxxslDTU, https://www.youtube.com/watch?v=THs9QUUXVhk
 - npm ref: https://www.youtube.com/watch?v=roxC8SMs7HU&t=0s
 
+### id token vs access token
+https://auth0.com/blog/id-token-access-token-what-is-the-difference/
+
 ## SSO
 https://www.youtube.com/watch?app=desktop&v=O1cRJWYF-g4
 
