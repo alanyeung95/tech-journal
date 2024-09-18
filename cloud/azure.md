@@ -9,6 +9,8 @@
 
 ## Machine Learning Use Case
 
+ref: https://www.youtube.com/watch?v=US1Mv00MCgo
+
 Building a multi-class classifier using Azure cloud services
 
 ### Step 1: Set Up Your Azure Environment
