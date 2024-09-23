@@ -135,6 +135,11 @@ hashed sharding, zone sharding
 ### Reference:
 https://xiezhenye.com/2012/12/mongodb-sharding-机制分析.html
 
+## Sharding vs Replication
+1. size: With replication, you have the original cake and then duplicate it into two cakes but now require extra storage to keep them both.
+
+2. time to combine query result: With sharding, imagine the cake being cut up into four, eight or twelve pieces, with each piece being stored in a separate place. You still ‘have’ a whole cake, but need to go to different places to get each slice… that’s sharding (or horizontal scaling).
+
 ## Replica Set Arbiter
 - In some circumstances (such as you have a primary and a secondary but cost constraints prohibit adding another secondary), you may choose to add an arbiter to your replica set. 
 - An arbiter does not have a copy of data set and cannot become a primary. However, an arbiter participates in elections for primary. An arbiter has exactly 1 election vote.
