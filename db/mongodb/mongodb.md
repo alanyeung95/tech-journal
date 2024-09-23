@@ -125,6 +125,11 @@ https://www.mongodb.com/resources/products/capabilities/sharding
 
 Divide data into different machine
 
+```
+sh.enableSharding("databaseName")
+sh.shardCollection("databaseName.collectionName", { "fieldName": "hashed" })
+```
+
 ### Benefit:
 1. Reduce the disk usage on a single server
 2. Faster query (index size decrease and distributed query)
