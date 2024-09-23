@@ -119,11 +119,18 @@ https://blog.toright.com/posts/4508/mongodb-replica-set-高可用性架構搭建
 production issues: https://www.stackhero.io/en/services/MongoDB/documentations/Replica-set-HA
 
 ## Sharding
+https://www.mongodb.com/docs/manual/sharding/
+
+https://www.mongodb.com/resources/products/capabilities/sharding
+
 Divide data into different machine
 
 ### Benefit:
 1. Reduce the disk usage on a single server
 2. Faster query (index size decrease and distributed query)
+
+### Type
+hashed sharding, zone sharding
 
 ### Reference:
 https://xiezhenye.com/2012/12/mongodb-sharding-机制分析.html
