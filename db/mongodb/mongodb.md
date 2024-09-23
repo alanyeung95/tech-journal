@@ -136,6 +136,8 @@ hashed sharding, zone sharding
 https://xiezhenye.com/2012/12/mongodb-sharding-机制分析.html
 
 ## Sharding vs Replication
+ref: https://double.cloud/blog/posts/2022/09/advantages-of-sharding-vs-replication/
+
 1. size: With replication, you have the original cake and then duplicate it into two cakes but now require extra storage to keep them both.
 
 2. time to combine query result: With sharding, imagine the cake being cut up into four, eight or twelve pieces, with each piece being stored in a separate place. You still ‘have’ a whole cake, but need to go to different places to get each slice… that’s sharding (or horizontal scaling).
