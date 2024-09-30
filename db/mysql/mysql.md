@@ -137,6 +137,12 @@ UPDATE records SET data = 'new data' WHERE id = 5;
 COMMIT;
 ```
 
+### Deadlock detection
+```
+show engine innoDB status
+```
+ref: https://www.modb.pro/issue/7387
+
 ## SQL Injection
 use `prepared` statement to prevent sql injection
 
