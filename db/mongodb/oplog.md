@@ -59,6 +59,14 @@ Since read operations are not logged in the oplog, you'll need alternative appro
    db.setProfilingLevel(1, { slowms: 100 })  // Level 1 logs slow queries taking longer than 100ms
    ```
 
+   After enabling, we can query the system.profile collection to find slow queries:
+   
+   ```javascript
+   Copy code
+   // Find slow operations
+   db.system.profile.find({millis: {$gt: 100}}).pretty()
+   ```
+
 2. **Query Logs**:
    Configure MongoDB to log all read queries by setting an appropriate verbosity level in the MongoDB configuration file or dynamically. However, this can generate very large log files and may impact performance.
 
