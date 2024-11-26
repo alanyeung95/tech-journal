@@ -45,6 +45,13 @@ intro: https://projectlombok.org/features/Data
 ### @Getter and @Setter annotation
 https://projectlombok.org/features/GetterSetter
 
+# Wildfly
+## config
+to solve issues like OOM, you can edit `/opt/jboss/wildfly/bin/standalone.conf`
+```
+JAVA_OPTS="$JAVA_OPTS -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m"
+```
+
 # Java bean
 
 https://www.youtube.com/watch?v=xlWwMSu5I70&list=PLGibysfsUS7NAbefiaj1V4LbX0glTftDI&index=4&t=0s
