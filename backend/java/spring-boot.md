@@ -1,12 +1,14 @@
-# Spring boot tutorial
+# Intro
+
+tutorial: 
 
 https://spring.io/guides/gs/spring-boot/
 
-# Spring boot project structure
+Spring boot project structure: 
 
 https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-practices-part-2-7137bdcba7d3
 
-# Spring boot advangatge
+## Spring boot advangatge
 
 1. Existing spring benefit
 
@@ -21,13 +23,26 @@ https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-p
 5. [Dependency injection](#dpi)
 
 
-# Spring boot disadvantages
+## Spring boot disadvantages
 
 1. Skip a lot details, we may not know the low level things
    1. need to setup spring/springmvn from xml in order to understand the auto-config place in spring boot
 
-# @Getter and @Setter annotation
+# Maven
+## pom.xml
 
+Usage
+1. Project info like <groupID>, <artifactId>, <packaging> type
+2. <dependencies>
+3. <build> let we define compile, build and execution option
+4. different <profile> can define different <build> tag
+   
+Reference: https://www.youtube.com/watch?v=IYRYbPR5Gek
+
+# Lombok
+intro: https://projectlombok.org/features/Data
+
+### @Getter and @Setter annotation
 https://projectlombok.org/features/GetterSetter
 
 # Java bean
@@ -109,15 +124,6 @@ template engine for serving static resources
 # XML config
 100% javaConfig, hybrid config vs xml config (https://www.baeldung.com/spring-xml-vs-java-config)
 
-# pom.xml
-
-Usage
-1. Project info like <groupID>, <artifactId>, <packaging> type
-2. <dependencies>
-3. <build> let we define compile, build and execution option
-4. different <profile> can define different <build> tag
-   
-Reference: https://www.youtube.com/watch?v=IYRYbPR5Gek
 
 # Dockerize Springboot
 
