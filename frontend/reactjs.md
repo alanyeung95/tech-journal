@@ -116,3 +116,12 @@ store.dispatch({
 })
 store.getState() // 0 塊錢
 ```
+
+# Context API
+
+
+If you are using Redux only to avoid passing props down to deeply nested components, then you could replace Redux with the Context API. It is exactly intended for this use case.
+
+On the other hand, if you are using Redux for everything else (having a predictable state container, handling your application's logic outside of your components, centralizing your application's state, using Redux DevTools to track when, where, why, and how your application's state changed, or using plugins such as Redux Form, Redux Saga, Redux Undo, Redux Persist, Redux Logger, etc…), then there is absolutely no reason for you to abandon Redux. The Context API doesn't provide any of this.
+
+ref: https://stackoverflow.com/a/49569203
