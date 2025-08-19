@@ -1,3 +1,37 @@
+# Quick quiz
+```
+What is the difference between let and var? ✅ let is block-scoped, while var is function-scoped.
+
+What is the purpose of the this keyword in JavaScript? ✅ It refers to the object that owns the current code.
+
+What is the output of console.log(typeof null)? ✅ object
+
+What is the difference between == and ===? ✅ == checks for value equality with type coercion, while === checks for both value and type equality.
+
+What is a closure in JavaScript? ✅ A function bundled with its lexical environment.
+
+What is the purpose of the async keyword?
+✅ The `async` keyword is used to declare a function that returns a Promise. It allows you to write asynchronous code that looks and behaves more like synchronous code, making it easier to read and maintain. Inside an `async` function, you can use the `await` keyword to pause execution until a Promise is resolved.
+
+What is the output of console.log(0.1 + 0.2 === 0.3)? ✅ false
+
+What does the bind method do? ✅ It creates a new function with a specific this value.
+
+What is the difference between map and forEach? ✅ map returns a new array, while forEach does not.
+
+What is the purpose of a Promise? ✅ It represents the eventual completion or failure of an asynchronous operation.
+
+What is the output of console.log([] + {})? ✅ [object Object]
+
+What does setTimeout do? ✅ It executes a function after a specified delay.
+
+What is the difference between call and apply? ✅ call accepts individual arguments, while apply accepts arguments as an array.
+
+What does Object.freeze do? ✅ It prevents modifications to an object.
+
+What is the output of console.log(typeof NaN)? ✅ number
+```
+
 # Callback Functions
 
 A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
