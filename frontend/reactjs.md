@@ -1,3 +1,36 @@
+# Quick quiz
+```
+What is React primarily used for? ✅ Building user interfaces
+
+What is the virtual DOM in React? ✅ A copy of the real DOM that React uses for updates
+
+Which method is used to update the state in a React component? ✅ setState()
+
+What is JSX in React? ✅ A JavaScript syntax extension
+
+What is the purpose of the useState hook in React? ✅ To manage component state
+
+What is the default behavior of React components when their state changes? ✅ They re-render
+
+What is the purpose of the useEffect hook in React? ✅ To handle side effects
+
+What is the significance of keys in React lists? ✅ They help React identify which items have changed
+
+What does the React.Fragment component do? ✅ It allows grouping of multiple elements without adding extra nodes to the DOM
+
+What is the purpose of PropTypes in React? ✅ To validate the props passed to a component
+
+What is the difference between a controlled and uncontrolled component in React? ✅ Controlled components rely on props, while uncontrolled components manage their state internally
+
+What is the purpose of the React.memo function? ✅ To optimize functional components by memoizing their output
+
+What is the purpose of the Context API in React? ✅ To manage global state
+
+What is the purpose of the React.StrictMode component? ✅ To highlight potential problems in an application
+
+What is the purpose of the useReducer hook in React? ✅ To manage complex state logic
+```
+
 # Hello world example
 ```
 import React from 'react'
