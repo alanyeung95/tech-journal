@@ -1,3 +1,26 @@
+## Quick quize
+```
+What is Node.js?? ✅ Node.js is a runtime environment that allows JavaScript to be run on the server side using the V8 engine.
+
+What is the purpose of the require() function in Node.js?? ✅ It is used to import modules, JSON, and local files into a Node.js application.
+
+What is the difference between process.nextTick() and setImmediate()? ✅ process.nextTick() executes callbacks before the next event loop tick, while setImmediate() executes them on the next event loop cycle.
+
+What is the role of the EventEmitter class in Node.js?? ✅ It allows objects to emit and listen for events, enabling asynchronous communication.
+
+What is the use of the fs module in Node.js?? ✅ It provides an API for interacting with the file system, including reading and writing files.
+
+What is middleware in the context of Express.js?? ✅ Middleware functions are functions that have access to the request and response objects and can modify them or end the request-response cycle.
+
+How does Node.js handle asynchronous operations? ✅ Node.js uses an event-driven, non-blocking I/O model with callbacks, promises, and async/await.
+
+What is the difference between require and import in Node.js?? ✅ require is used in CommonJS modules, while import is used in ES modules and requires enabling ECMAScript module support.
+
+What is the purpose of the package.json file? ✅ It contains metadata about the project and manages dependencies, scripts, and configuration.
+
+What is the use of the Buffer class in Node.js?? ✅ It is used to handle binary data directly in memory, especially useful for file and network operations.
+```
+
 ## ES6
 
 ### Arrow function
