@@ -73,5 +73,16 @@ MySQL is designed to enact high-performance joins across multiple tables that ar
 
 MongoDB documents follow a hierarchical data model and keep most of the data in a single document, reducing the need for joins across multiple documents. Joins are supported via the $lookup operation, but they are not optimized for performance. However, MongoDB offers an insertMany() API for rapidly inserting data, prioritizing write performance. 
 
+### No sequential bottleneck
+MySQL's AUTO_INCREMENT counter is a central, shared resource that all write transactions must access. MongoDB's approach of generating unique IDs (object uuid) independently on each client eliminates this sequential dependency entirely.
+
+### Schema-less: 
+MongoDB no need to validate against a rigid schema, which speeds up bulk inserts.
+
+### Bulk Insert
+1. Index updates: MySQL is slower due to constraints/logging, each insert triggers multiple index recalculations.
+2. Parsing Overhead: The SQL parser has to process a massive query string when you use a huge `INSERT INTO ... VALUES (...) statement`. This adds CPU load and memory pressure
+3. Constraint Checks: column types, primary keys
+
 ## security
 sql injection exist in Mysql
