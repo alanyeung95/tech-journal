@@ -1,55 +1,84 @@
 # Intro
 
-tutorial: 
+tutorial:
 
 https://spring.io/guides/gs/spring-boot/
 
-Spring boot project structure: 
+Spring boot project structure:
 
 https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-practices-part-2-7137bdcba7d3
 
 ## Spring boot advangatge
 
-1. Existing spring benefit
+1. Existing spring benefits
 
-   1. dependencies
-      1. only need to add dependencies in pom.xml then mvn will do the job during `mvn install` or `mvn exec`
-   2. Built-in server like tomcat
+   1. Built-in server like tomcat
+   2. Spring Security
+   3. Spring Data JPA
 
-2. Easy setup
+2. Reduce Code complexity
+   1. use pom.xml to replace web.xml, servlet-context.xml
+   2. default using tomcat webserver
+3. Easy setup
    1. Spring initiator and auto configuration
-3. `Actuator` make monitoring easiler
-4. [Auto config](#auto_config) 
-5. [Dependency injection](#dpi)
+4. `Actuator` make monitoring easiler
+5. Annotation
 
+   ```
+   @Getter // Generates all getter methods
+   @Setter // Generates all setter methods
+   @NoArgsConstructor // Generates a default constructor
+   @AllArgsConstructor // Generates a constructor with all fields
+   public class User {
+
+    private Long id;
+    private String name;
+    private String email;
+   }
+   ```
+
+   ```
+   @RestController // Tells Spring this class is a REST controller
+   public class UserController {
+
+    @GetMapping("/users") // Maps HTTP GET requests to this method
+    public List<User> getAllUsers() {
+        // Here, Lombok's @AllArgsConstructor is used implicitly
+        return Arrays.asList(
+            new User(1L, "Alice", "alice@example.com"),
+            new User(2L, "Bob", "bob@example.com")
+        );
+    }
+   }
+   ```
+
+6. Auto config
+   1. provide default config like tomcat server, application port
+7. [Dependency injection](#dpi)
 
 ## Spring boot disadvantages
 
 1. Skip a lot details, we may not know the low level things
    1. need to setup spring/springmvn from xml in order to understand the auto-config place in spring boot
 
-# Maven
-## pom.xml
-
-Usage
-1. Project info like <groupID>, <artifactId>, <packaging> type
-2. <dependencies>
-3. <build> let we define compile, build and execution option
-4. different <profile> can define different <build> tag
-   
-Reference: https://www.youtube.com/watch?v=IYRYbPR5Gek
-
 # Lombok
+
 intro: https://projectlombok.org/features/Data
 
 ### @Getter and @Setter annotation
+
 https://projectlombok.org/features/GetterSetter
 
 # Wildfly
+
 ## config
+
 to solve issues like OOM, you can edit `/opt/jboss/wildfly/bin/standalone.conf`
+
 ```
+
 JAVA_OPTS="$JAVA_OPTS -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m"
+
 ```
 
 # Java bean
@@ -58,6 +87,7 @@ https://www.youtube.com/watch?v=xlWwMSu5I70&list=PLGibysfsUS7NAbefiaj1V4LbX0glTf
 https://www.youtube.com/watch?v=7c6ZTF6cF88&list=PLGibysfsUS7NAbefiaj1V4LbX0glTftDI&index=4
 
 # Dependency injection <a name="dpi"></a>
+
 Reference:
 https://www.youtube.com/watch?v=K5bkniAjkZA
 
@@ -88,7 +118,7 @@ Receive request then decide to pass to service inside servlets
 
 A servlet is simply a class which responsds to a particular type of network request - most commonly an HTTP request.
 
-# Auto configuration  <a name="auto_config"></a>
+# Auto configuration <a name="auto_config"></a>
 
 When we use springMVC we need to use xml file to define a lot of stuff include bean to tell the bean factory to create object for us.
 
@@ -111,7 +141,9 @@ https://blog.csdn.net/qq_28411869/article/details/101053098
 add the following line in `.src/main/resources/application.properties`
 
 ```
+
 logging.level.org.springframework.web=DEBUG
+
 ```
 
 ### use actuator
@@ -129,8 +161,8 @@ https://www.springboottutorial.com/spring-boot-auto-configuration
 template engine for serving static resources
 
 # XML config
-100% javaConfig, hybrid config vs xml config (https://www.baeldung.com/spring-xml-vs-java-config)
 
+100% javaConfig, hybrid config vs xml config (https://www.baeldung.com/spring-xml-vs-java-config)
 
 # Dockerize Springboot
 
@@ -139,4 +171,9 @@ https://spring.io/guides/gs/spring-boot-docker
 https://www.baeldung.com/dockerizing-spring-boot-application
 
 # Top Spring Boot Interview Questions and Answers
+
 https://www.geeksforgeeks.org/spring-boot-interview-questions-and-answers/
+
+```
+
+```

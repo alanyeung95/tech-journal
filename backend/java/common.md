@@ -1,15 +1,19 @@
 ## What is an object?
+
 The object is a real-life entity that has certain properties and methods associated with it. The object is also defined as the instance of a class. An object can be declared using a new keyword.
 
 ## Memory
+
 key concepts: stack, heap, garbage collection, young and old generation
 
 ref: https://www.baeldung.com/java-stack-heap, https://sematext.com/glossary/jvm-heap/
 
 ## 81. What is an Interface?
+
 An interface in Java is a collection of static final variables and abstract methods that define the contract or agreement for a set of linked classes. Any class that implements an interface is required to implement a specific set of methods. It specifies the behavior that a class must exhibit but not the specifics of how it should be implemented.
 
 Feature of interface:
+
 1. The interface can help to achieve total abstraction.
 2. Allows us to use multiple inheritances in Java.
 3. Any class can implement multiple interfaces even when one class can extend only one class.
@@ -46,8 +50,9 @@ class GFG {
 }
 ```
 
-## What is the primary benefit of Encapsulation? 
-The main advantage of Encapsulation in Java is its ability to protect the internal state of an object from external modification or access. It is the is a way of hiding the implementation details of a class from outside access and only exposing a public interface that can be used to interact with the class. The main benefit is of providing a way to control and manage the state and the behavior of an object and also protecting it from modification and unauthorized access at the same time. 
+## What is the primary benefit of Encapsulation?
+
+The main advantage of Encapsulation in Java is its ability to protect the internal state of an object from external modification or access. It is the is a way of hiding the implementation details of a class from outside access and only exposing a public interface that can be used to interact with the class. The main benefit is of providing a way to control and manage the state and the behavior of an object and also protecting it from modification and unauthorized access at the same time.
 
 ```
 // Java Program to demonstrate use of Encapsulation
@@ -75,6 +80,7 @@ class GFG {
 ```
 
 ## Inheritance
+
 ```
 // Java Program to show multiple Inheritance
 import java.io.*;
@@ -100,7 +106,8 @@ class GFG {
 }
 ```
 
-## abstraction vs encapsulation 
+## abstraction vs encapsulation
+
 abstraction: show only necessary part like abstract interface. Implementation is hidden subclass `SimpleMusicPlayer`
 
 ```
@@ -115,9 +122,10 @@ class SimpleMusicPlayer extends MusicPlayer {
 
 encapsulation: bundling attributes and methods into a single unit or class. Use getter and setter to restrict access to prevent the accidental modification of data.
 
-
 ## this
+
 the `this` keyword is used as a reference to the current objec
+
 ```
 public class Car {
     private String model;
@@ -133,20 +141,27 @@ public class Car {
 ## final
 
 ### final variable:
+
 When a variable is declared as final in Java, the value can’t be modified once it has been assigned.
 If any value has not been assigned to that variable, then it can be assigned only by the constructor of the class.
+
 ### final method:
+
 A method declared as final cannot be overridden by its children's classes.
 A constructor cannot be marked as final because whenever a class is inherited, the constructors are not inherited. Hence, marking it final doesn't make sense. Java throws compilation error saying - modifier final not allowed here
+
 ### final class:
+
 No classes can be inherited from the class declared as final. But that final class can extend other classes for its usage.
 
 ## super
+
 in order to create a subclass, we must create a parent class first so that subclass can inherit the attributes
 
-## Thread Synchronization 
+## Thread Synchronization
 
 ### Method Synchronization
+
 1. https://www.tutorialspoint.com/java/java_thread_synchronization.htm
 2. https://www.javatpoint.com/synchronization-in-java
 
@@ -157,6 +172,7 @@ public synchronized void increment() {
 ```
 
 ## Lock
+
 ```
 Lock lock = new ReentrantLock();
 public void increment() {
@@ -170,10 +186,58 @@ public void increment() {
 
 ```
 
+## Synchronization vs Lock
+
+Synchronized allows in one thread at a time.
+
+Read/Write locks allow in multiple readers a the same time, but only if no writers are already in. Hence under some usage scenarios we can get better concurrency, because the reader populations can proceed together.
+
+ref: https://stackoverflow.com/a/6637213
+
 ## Hashmap
+
 ref: https://www.youtube.com/watch?app=desktop&v=c3RVW3KGIIE
 
+## Maven
+
+Apache Maven is a build tool for Java projects. Using a project object model (POM), Maven manages a project's compilation, testing, and documentation.
+
+A Build Lifecycle is Made Up of Phases
+Each of these build lifecycles is defined by a different list of build phases, wherein a build phase represents a stage in the lifecycle.
+
+### Maven Lifecycle:
+
+1. validate - validate the project is correct and all necessary information is available
+2. compile - compile the source code of the project
+3. test - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+4. package - take the compiled code and package it in its distributable format, such as a JAR. (include validate, compile and test)
+5. verify - run any checks on results of integration tests to ensure quality criteria are met
+6. install - install the package into the local repository, for use as a dependency in other projects locally. (validate, compile, test, package are executed first). This makes the newly built artifact available for other projects on your local machine to use as a dependency.
+7. deploy - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
+
+other commands support by plugins:
+
+1. spring-boot:run - Spring Boot Maven Plugin, compile the code then run the app
+
+### Use java -jar in production env
+
+java -jar: This method directly starts the JVM with your application's JAR file. It's a more lightweight and efficient way to launch the application, as it avoids the overhead of the Maven build system.
+
+mvn spring-boot:run: This command invokes Maven, which in turn starts the JVM and runs the application. The additional layer of Maven adds some startup overhead and consumes more resources, which might be a concern in resource-constrained production environments.
+
+### pom.xml
+
+Usage
+
+1. Project info like <groupID>, <artifactId>, <packaging> type
+2. <dependencies>
+3. <build> let we define compile, build and execution option
+4. different <profile> can define different <build> tag
+
+Reference: https://www.youtube.com/watch?v=IYRYbPR5Gek
+
 ## Ref
+
 1. from javascript to java: https://andresclavijo.co
 2. https://www.geeksforgeeks.org/java-interview-questions
 3. https://www.interviewbit.com/java-interview-questions/#java-platform-independent
