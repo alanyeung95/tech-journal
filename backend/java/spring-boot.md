@@ -25,16 +25,7 @@ https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-p
 5. Annotation
 
    ```
-   @Getter // Generates all getter methods
-   @Setter // Generates all setter methods
-   @NoArgsConstructor // Generates a default constructor
-   @AllArgsConstructor // Generates a constructor with all fields
-   public class User {
-
-    private Long id;
-    private String name;
-    private String email;
-   }
+   @SpringBootApplication: Used to mark the main class of a Spring Boot application. It is a convenience annotation that combines @Configuration, @EnableAutoConfiguration, and @ComponentScan with their default attributes.
    ```
 
    ```
@@ -65,9 +56,49 @@ https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-p
 
 intro: https://projectlombok.org/features/Data
 
+### @Data
+
+Include @Getter and @Setter
+
 ### @Getter and @Setter annotation
 
 https://projectlombok.org/features/GetterSetter
+
+```
+@Getter // Generates all getter methods
+@Setter // Generates all setter methods
+@NoArgsConstructor // Generates a default constructor
+@AllArgsConstructor // Generates a constructor with all fields
+public class User {
+
+ private Long id;
+ private String name;
+ private String email;
+}
+```
+
+### @Log and @Slf4j
+
+```
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
+
+@Log
+public class LogExample {
+
+  public static void main(String... args) {
+    log.severe("Something's wrong here");
+  }
+}
+
+@Slf4j
+public class LogExampleOther {
+
+  public static void main(String... args) {
+    log.error("Something else is wrong here");
+  }
+}
+```
 
 # Wildfly
 
