@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    environment:
+      - OLLAMA_ALLOW_INSECURE=true
+    gpus:
+      - driver: nvidia
+        count: all
+        capabilities: ["gpu"]
+
+volumes:
+  ollama-data:
+
+# docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+# ollama run smallthinker
+
+# curl --location 'http://localhost:11434/api/generate' \
+# --header 'Content-Type: application/json' \
+# --data '{
+#   "model": "smallthinker",
+#   "prompt": "Write a friendly 2-sentence greeting for a new user.",
+#   "stream": false,
+#   "options": {
+#     "temperature": 0.7,
+#     "max_tokens": 120
+#   },
+#   "keep_alive": "5m"
+# }'
