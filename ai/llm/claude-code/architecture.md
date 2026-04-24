@@ -4,6 +4,8 @@ https://github.com/tanbiralam/claude-code
 
 ## Architecture
 
+![claude-code-architecture](https://i.imgur.com/gmybu8b.png)
+
 ![claude-code-architecture](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*7x8C9RoPM0n5tybVwqFbrg.png)
 
 User interface — how you talk to Claude Code. VS Code, terminal, browser, or voice.
