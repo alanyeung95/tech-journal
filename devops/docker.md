@@ -65,3 +65,73 @@ ref: https://docs.docker.com/guides/deployment-orchestration/swarm-deploy/
 default will connect the stdout inside the container, if we want to input something into container, we need '-it' for stdin.
 The -it instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container.
 -i for stdin, stdout, stderr, -t for nice formatting
+
+# Case study: insufficient space when building docker images
+```
+$ docker build -t myapp:latest .
+[+] Building 12.4s (8/15) => [internal] load build definition from Dockerfile               0.1s
+ => => transferring dockerfile: 32B                                        0.0s
+[+] Building 45.7s (9/15) => [internal] load .dockerignore                                  0.1s
+ => => transferring context: 2B                                            0.0s
+ => [internal] load metadata for docker.io/library/python:3.11-slim        2.3s
+ => [1/11] FROM docker.io/library/python:3.11-slim@sha256:abc123...        3.2s
+ => => resolve docker.io/library/python:3.11-slim@sha256:abc123...         2.1s
+ => => sha256:9b3977197b4f8  3.40kB / 3.40kB                               0.0s
+ => [2/11] RUN apt-get update && apt-get install -y --no-install-recommends  18.4s
+ => [3/11] RUN pip install --no-cache-dir -r requirements.txt               12.1s
+ => [4/11] COPY . /app                                                      0.8s
+ => [5/11] WORKDIR /app                                                     0.2s
+ => [6/11] RUN python -m compileall .                                       3.4s
+ => ERROR [7/11] RUN pip install --no-cache-dir torch==2.2.0               5.6s
+------
+ > [7/11] RUN pip install --no-cache-dir torch==2.2.0:
+2.2.0
+Collecting torch==2.2.0
+  Downloading torch-2.2.0-cp311-cp311-manylinux1_x86_64.whl (755.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 523.4/755.5 MB 24.5 MB/s eta 0:00:10
+ERROR: Could not install packages due to an OSError: [Errno 28] No space left on device
+------
+Dockerfile:12
+--------------------
+  11 |     COPY . /app
+  12 | >>> RUN pip install --no-cache-dir torch==2.2.0
+  13 |     WORKDIR /app
+--------------------
+ERROR: failed to solve: process "/bin/sh -c pip install --no-cache-dir torch==2.2.0" did not complete successfully: exit code: 1
+```
+```
+$ df -h /var/lib/docker
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        50G   48G   0   96% /
+```
+
+Edit (or create) /etc/docker/daemon.json:
+```
+{
+  "data-root":"/home/docker"
+}
+```
+
+Then:
+```
+sudo systemctl stop docker
+sudo rsync -aP /var/lib/docker/ /home/docker/
+sudo systemctl start docker
+```
+
+Verify:
+```
+docker info | grep "Docker Root Dir"
+```
+
+# Containerd
+## lazy pulling
+
+Normally, when you `docker pull` an image: Docker downloads the entire image (all compressed layers). Then it extracts all layers before you can run the container.
+
+With lazy pulling (via snapshotters like stargz or nydus): Only the metadata and needed chunks are fetched initially. Files are streamed on‑demand when the container actually accesses them. You can start the container almost immediately, even before the full image is downloaded.
+
+### Advantages
+1. Faster startup → Containers can begin running seconds after pull starts.
+2. Reduced bandwidth → Only the files actually used are downloaded.
+3. Lower disk usage → Avoids storing unused files locally.
